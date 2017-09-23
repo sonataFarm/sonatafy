@@ -34,6 +34,8 @@ gem 'annotate'
 gem 'faker'
 gem 'factory_girl'
 gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0.0.beta'
+gem 'sprockets-rails', require: 'sprockets/railtie'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
