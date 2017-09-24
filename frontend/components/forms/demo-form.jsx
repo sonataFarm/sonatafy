@@ -100,14 +100,6 @@ class DemoForm extends React.Component {
         </div>
         <div className="form-group row">
           <label htmlFor="password">Password:</label>
-          {/* <Field
-            className="form-control"
-            name="password"
-            component="input"
-            type="password"
-            placeholder="Password"
-            value={this.state.password}
-          /> */}
           <input
             className="form-control"
             name="password"

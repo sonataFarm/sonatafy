@@ -17,6 +17,7 @@ const Cover = ({ handleClick }) => (
           Guest Demo
       </Link> */}
       <button
+        id="demo-btn"
         className="btn btn-lg btn-default"
         onClick={ handleClick }
       >Guest Demo</button>

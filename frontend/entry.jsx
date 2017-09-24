@@ -5,7 +5,6 @@ import { configureStore } from './store/store';
 
 // !!!testing
 import * as actions from './actions/session-actions';
-import Test from './todo-list';
 // !!!
 
 document.addEventListener('DOMContentLoaded', () => {
