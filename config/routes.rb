@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#root'
+  get 'test', to: 'static_pages#test'
+  
   namespace :api, defaults: { format: :json } do
 
     get 'users/current', to: 'users#current'

@@ -16,14 +16,20 @@ class DemoForm extends React.Component {
     };
 
     this.username = 'wolfiemoz';
-    this.password = 'symphonie';
+    this.password = 'symphony';
 
     this.animate = this.animate.bind(this);
-    this.updateField = this.updateField.bind(this);
+    this.nextFrame = this.nextFrame.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
     if (newProps.animating) {
+
+      this.setState({
+        username: '',
+        password: ''
+      });
+
       setTimeout(this.animate, 500);
     } else {
       clearTimeout(this.timeout);
@@ -31,68 +37,86 @@ class DemoForm extends React.Component {
   }
 
   animate() {
-    if (this.username) {
-      this.updateField('username');
-      this.timeout = setTimeout(this.animate, KEYSTROKE_DELAY);
-    } else if (this.password) {
-      this.updateField('password');
-      this.timeout = setTimeout(this.animate, KEYSTROKE_DELAY);
+    if (this.state.username === this.username &&
+        this.state.password === this.password) {
+      this.props.toggleDemoAnimation();
     } else {
-      toggleDemoAnimation();
-      console.log(this.state);
-      // this.props.handleSubmit(this.state);
+      if (this.state.username !== this.username) {
+        this.nextFrame('username');
+      } else {
+        this.nextFrame('password');
+      }
+
+      setTimeout(this.animate, KEYSTROKE_DELAY);
     }
   }
 
-  updateField(field) {
-    const nextLetter = this[field][0];
-    this[field] = this[field].slice(1);
 
+
+
+
+  //   }
+  // }
+  //   if (this.state.username !== this.username) {
+  //     this.updateField('username');
+  //     this.timeout = setTimeout(this.animate, KEYSTROKE_DELAY);
+  //   } else if (this.state.password !== this.password) {
+  //     this.updateField('password');
+  //     this.timeout = setTimeout(this.animate, KEYSTROKE_DELAY);
+  //   } else {
+  //     this.timeout = setTimeout(this.animate, KEYSTROKE_DELAY);
+  //     toggleDemoAnimation();
+  //     console.log(this.state);
+  //     // this.props.handleSubmit(this.state);
+  //   }
+  // }
+
+  nextFrame(field) {
     this.setState(
-      prevState => ({ [field]: (prevState[field] + nextLetter) })
+      prevState => ({ [field]: this.username.slice(0, this.state[field].length + 1) })
     );
   }
 
   render() {
-    debugger;
+    // debugger;
     return (
       <form onSubmit={ this.handleSubmit }>
         <div className="form-group row">
           <label htmlFor="username">Username:</label>
-          {/* <input
-            class="form-control"
+          <input
+            className="form-control"
             name="username"
             type="text"
-            value={'gay'}
-          /> */}
-          <Field
+            value={this.state.username}
+          />
+          {/* <Field
             className="form-control"
             name="username"
             component="input"
             type="text"
             placeholder="Username"
             value={this.state.username}
-          />
+          /> */}
         </div>
         <div className="form-group row">
           <label htmlFor="password">Password:</label>
-          <Field
+          {/* <Field
             className="form-control"
             name="password"
             component="input"
             type="password"
             placeholder="Password"
             value={this.state.password}
-          />
-          {/* <input
-            class="muyclass"
+          /> */}
+          <input
+            className="form-control"
             name="password"
             type="password"
             value={this.state.password}
-          /> */}
+          />
         </div>
         <button
-          className="btn btn-primary"
+          className="btn btn-primary btn-form"
         >
           Sign In
         </button>

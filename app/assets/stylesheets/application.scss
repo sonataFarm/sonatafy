@@ -11,9 +11,7 @@
  * It is generally better to create a new file per style scope.
   */
 
-@import "bootstrap";
-@import "./static-pages.scss";
-@import "./fonts.scss";
-@import "./layout.scss";
-@import "./landing-page.css";
-@import "./components/*";
+@import 'bootstrap';
+@import 'base/fonts';
+@import 'base/layout';
+@import 'components/*';

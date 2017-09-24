@@ -1,3 +1,5 @@
+@import 'base/variables';
+
 .modal {
   color: black;
   width: 500px;
@@ -10,5 +12,5 @@
 }
 
 .modal-title {
-  font-family: "Quintessential";
+  font-family: $font-loud;
 }
