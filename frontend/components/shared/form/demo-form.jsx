@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Field } from 'redux-form';
 import { toggleDemoAnimation } from '../../../actions/ui-actions';
+
 
 const KEYSTROKE_DELAY = 130;
 
@@ -52,23 +54,42 @@ class DemoForm extends React.Component {
   }
 
   render() {
+    debugger;
     return (
       <form onSubmit={ this.handleSubmit }>
         <div className="form-group row">
           <label htmlFor="username">Username:</label>
-          <input
+          {/* <input
+            class="form-control"
             name="username"
             type="text"
+            value={'gay'}
+          /> */}
+          <Field
+            className="form-control"
+            name="username"
+            component="input"
+            type="text"
+            placeholder="Username"
             value={this.state.username}
           />
         </div>
         <div className="form-group row">
           <label htmlFor="password">Password:</label>
-          <input
+          <Field
+            className="form-control"
+            name="password"
+            component="input"
+            type="password"
+            placeholder="Password"
+            value={this.state.password}
+          />
+          {/* <input
+            class="muyclass"
             name="password"
             type="password"
             value={this.state.password}
-          />
+          /> */}
         </div>
         <button
           className="btn btn-primary"
