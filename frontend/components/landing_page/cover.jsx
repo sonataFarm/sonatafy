@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { toggleDemoAnimation } from '../../actions/ui-actions';
 import ModalButton from '../shared/modal/modal-button';
 
-const Cover = () => (
+const Cover = ({ handleClick }) => (
   <div className="inner cover">
     <h1 className="cover-heading">Discover great music.</h1>
     <p className="lead">
-      A classical recording has a composer and one or more performers, but sometimes with Spotify the details get lost in the shuffle. Thankfully, now there's Sonatify.
+      Discover a new masterpiece. Make an old playlist. Share it all with your friends. 
     </p>
     <p className="lead">
       {/* <Link
@@ -14,13 +16,19 @@ const Cover = () => (
         to="demo">
           Guest Demo
       </Link> */}
-      <ModalButton
-        text="Guest Demo"
-        modalId="guest-demo-modal"
-        // todo: give modal button same styling as "btn btn-lg btn-default"
-      />
+      <button
+        className="btn btn-lg btn-default"
+        onClick={ handleClick }
+      >Guest Demo</button>
     </p>
   </div>
 );
 
-export default Cover;
+const mapDispatchToProps = dispatch => ({
+  handleClick: () => {
+    $('#guest-demo-modal').modal('show');
+    dispatch(toggleDemoAnimation());
+  }
+});
+
+export default connect(null, mapDispatchToProps)(Cover);

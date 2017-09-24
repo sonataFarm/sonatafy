@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from '../../shared/modal/modal';
+import DemoForm from '../../shared/form/demo-form';
 
-const title = "Guest Demo Login";
 const body = <div>
   Username:
   Password:
@@ -13,8 +13,7 @@ const GuestDemoModal = () => (
    <Modal
     id='guest-demo-modal'
     title="Guest Demo Login"
-    body={body}
-    footer={footer}
+    body={<DemoForm />}
   />
 );
 

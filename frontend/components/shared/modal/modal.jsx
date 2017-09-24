@@ -13,9 +13,11 @@ const Modal = ({ title, body, footer, id }) => (
         <div className="modal-body">
           { body }
         </div>
+        {footer && (
         <div className="modal-footer">
           { footer }
         </div>
+      )}
       </div>
     </div>
   </div>

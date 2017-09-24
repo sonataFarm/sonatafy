@@ -1,16 +1,13 @@
 import React from 'react';
 import Modal from '../../shared/modal/modal';
-
-const body = <div>
-
-</div>
-
-const footer = <div>
-
-</div>
+import SignupFormContainer from '../../shared/form/signup-form-container';
 
 const SignupModal = () => (
-  <Modal />
-)
+  <Modal
+    id="signup-modal"
+    title="Sign up"
+    body={<SignupFormContainer />}
+  />
+);
 
 export default SignupModal;
