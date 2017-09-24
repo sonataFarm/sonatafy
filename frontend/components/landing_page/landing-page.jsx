@@ -2,6 +2,11 @@ import React from 'react';
 import Masthead from './masthead';
 import Cover from './cover';
 import Mastfoot from './mastfoot';
+import {
+  GuestDemoModal,
+  LoginModal,
+  SignupModal
+} from './modals/landing-page-modals';
 
 const LandingPage = props => (
   <div className="landing">
@@ -14,6 +19,7 @@ const LandingPage = props => (
         </div>
       </div>
     </div>
+    <GuestDemoModal />
   </div>
 );
 
