@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { toggleDemoAnimation } from '../../actions/ui-actions';
-import ModalButton from '../shared/modal/modal-button';
+import ModalButton from '../shared/modal-button';
 
 const Cover = ({ handleClick }) => (
   <div className="inner cover">

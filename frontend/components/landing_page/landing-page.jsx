@@ -2,7 +2,7 @@ import React from 'react';
 import Masthead from './masthead';
 import Cover from './cover';
 import Mastfoot from './mastfoot';
-import LandingPageModals from './modals/landing-page-modals';
+import LandingPageModals from '../modals/landing-page-modals';
 
 const LandingPage = props => (
   <div className="landing">

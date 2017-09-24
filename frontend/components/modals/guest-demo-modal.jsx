@@ -1,6 +1,6 @@
 import React from 'react';
-import Modal from '../../shared/modal/modal';
-import DemoForm from '../../shared/form/demo-form';
+import Modal from '../shared/modal';
+import DemoForm from '../forms/demo-form';
 
 const body = <div>
   Username:

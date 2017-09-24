@@ -1,6 +1,6 @@
 import React from 'react';
-import Modal from '../../shared/modal/modal';
-import LoginFormContainer from '../../shared/form/login-form-container';
+import Modal from '../shared/modal';
+import LoginFormContainer from '../forms/login-form-container';
 
 const LoginModal = () => (
   <Modal

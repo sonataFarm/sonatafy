@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field } from 'redux-form';
-import { toggleDemoAnimation } from '../../../actions/ui-actions';
+import { toggleDemoAnimation } from '../../actions/ui-actions';
 
 
 const KEYSTROKE_DELAY = 130;
