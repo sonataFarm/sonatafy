@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from '../../shared/modal/modal';
 
 const body = <div>
 
@@ -8,5 +9,7 @@ const footer = <div>
 
 </div>
 
-
+const LoginModal = () => (
+  <Modal />
+)
 export default LoginModal;

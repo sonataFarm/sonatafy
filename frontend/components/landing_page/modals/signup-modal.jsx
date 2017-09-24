@@ -9,4 +9,8 @@ const footer = <div>
 
 </div>
 
+const SignupModal = () => (
+  <Modal />
+)
+
 export default SignupModal;
