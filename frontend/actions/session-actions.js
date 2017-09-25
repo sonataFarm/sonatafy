@@ -1,4 +1,5 @@
 import APIUtil from '../util/api-util';
+import { receivePlaylists } from './playlist-actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
@@ -13,26 +14,31 @@ export const receiveSessionErrors = errors => ({
   errors
 });
 
+export const receiveUserData = data => dispatch => {
+  dispatch(receiveCurrentUser(data.user));
+  dispatch(receivePlaylists(data.playlists));
+}
+
+export const signup = user => dispatch => (
+  APIUtil.session.signup(user)
+  .then(
+    data => dispatch(receiveUserData(data)),
+    errors => dispatch(receiveSessionErrors(errors))
+  )
+);
+
 export const login = user => dispatch => (
-  APIUtil.login(user)
+  APIUtil.session.login(user)
     .then(
-      user => dispatch(receiveCurrentUser(user)),
+      data => dispatch(receiveUserData(data)),
       errors => dispatch(receiveSessionErrors(errors))
     )
 );
 
 export const logout = () => dispatch => (
-  APIUtil.logout()
+  APIUtil.session.logout()
     .then(
       () => dispatch(receiveCurrentUser(null)),
-      errors => dispatch(receiveSessionErrors(errors))
-    )
-);
-
-export const signup = user => dispatch => (
-  APIUtil.signup(user)
-    .then(
-      user => dispatch(receiveCurrentUser(user)),
       errors => dispatch(receiveSessionErrors(errors))
     )
 );

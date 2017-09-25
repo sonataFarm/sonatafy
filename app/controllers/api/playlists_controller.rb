@@ -19,6 +19,8 @@ class Api::PlaylistsController < ApplicationController
     if @playlist
       @playlist.destroy
       render json: {}
+    else
+      render json: ["Playlist does not exist"], status: 404
     end
   end
 

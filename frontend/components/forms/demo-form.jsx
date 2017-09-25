@@ -78,7 +78,6 @@ class DemoForm extends React.Component {
   }
 
   render() {
-    // debugger;
     return (
       <form onSubmit={ this.handleSubmit }>
         <div className="form-group row">

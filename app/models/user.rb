@@ -3,6 +3,7 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
+  has_many :playlists
   before_validation :ensure_session_token
 
   def self.find_by_credentials(username, password)
@@ -34,5 +35,11 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
+  end
+
+  def playlist_ids
+    playlists.map do |playlist|
+      playlist.id
+    end
   end
 end

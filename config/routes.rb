@@ -12,6 +12,6 @@ Rails.application.routes.draw do
     get 'tracks/:id', to: 'tracks#show'
     get 'albums/:id', to: 'albums#show'
     get 'composers/:id', to: 'composers#show'
-    get 'perfomers/:id', to: 'performers#show'
+    get 'performers/:id', to: 'performers#show'
   end
 end
