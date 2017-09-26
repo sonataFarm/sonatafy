@@ -13,11 +13,12 @@ import { selectPlaylistsByUserID } from './selectors/selectors';
 document.addEventListener('DOMContentLoaded', () => {
   let preloadedState;
   if (window.prefetchedData) {
+    const { currentUser, playlists } = window.prefetchedData;
     preloadedState = {
-      session: { currentUser: window.prefetchedData.currentUser },
+      session: { currentUser },
       entities: {
-        users: { ...window.prefetchedData.currentUser },
-        playlists: { ...window.prefetchedData.playlists }
+        users: { ...{ [currentUser.id]: currentUser } },
+        ...{ playlists }
       }
     }
   } else {

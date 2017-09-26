@@ -6,6 +6,10 @@ import {
   REMOVE_PLAYLIST
  } from '../../actions/playlist-actions';
 
+ import {
+   REMOVE_CURRENT_USER
+ } from '../../actions/session-actions';
+
 const PlaylistsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_PLAYLISTS:
@@ -26,6 +30,9 @@ const PlaylistsReducer = (state = {}, action) => {
       };
       delete newState[action.id];
       return newState;
+
+    case REMOVE_CURRENT_USER:
+      return {};
 
     default:
       return state;

@@ -3,10 +3,15 @@ import { receivePlaylists } from './playlist-actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
   currentUser
+});
+
+export const removeCurrentUser = () => ({
+  type: REMOVE_CURRENT_USER
 });
 
 export const receiveSessionErrors = errors => ({
@@ -38,7 +43,7 @@ export const login = user => dispatch => (
 export const logout = () => dispatch => (
   APIUtil.session.logout()
     .then(
-      () => dispatch(receiveCurrentUser(null)),
+      () => dispatch(removeCurrentUser()),
       errors => dispatch(receiveSessionErrors(errors))
     )
 );

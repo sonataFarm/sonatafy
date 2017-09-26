@@ -5,9 +5,9 @@ const PlaylistList = ({ playlists }) => {
   const playlistListItems = playlists.map(
     playlist => <PlaylistListItem key={playlist.id} playlist={playlist} />
   );
-
   return (
     <ul>
+      <li>Playlists:</li>
       {playlistListItems}
     </ul>
   );
