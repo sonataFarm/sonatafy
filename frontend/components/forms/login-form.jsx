@@ -27,6 +27,7 @@ const LoginForm = props => {
         />
       </div>
       <button
+        type="submit"
         className="btn btn-primary btn-form"
         disabled={ pristine }
       >

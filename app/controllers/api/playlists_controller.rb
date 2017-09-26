@@ -4,6 +4,11 @@ class Api::PlaylistsController < ApplicationController
     render 'api/playlists/show'
   end
 
+  def index
+    user = User.find_by_id(params[:user_id])
+    @playlists = user.playlists
+  end
+
   def create
     @playlist = Playlist.new(playlist_params)
 

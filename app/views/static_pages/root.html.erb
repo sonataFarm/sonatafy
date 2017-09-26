@@ -1,1 +1,19 @@
+<% if logged_in? %>
+  <script type="text/javascript">
+    prefetchedData = {};
+    prefetchedData.currentUser = <%= render(
+      "api/users/user.json.jbuilder",
+      user: current_user
+    ).html_safe %>
+
+    prefetchedData.playlists = <%= render(
+      "api/playlists/playlists.json.jbuilder",
+      playlists: current_user.playlists
+    ).html_safe %>
+
+    window.prefetchedData = prefetchedData;
+    debugger
+  </script>
+<% end %>
+
 <div id="root"></div>

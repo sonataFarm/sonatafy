@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { Field } from 'redux-form';
 import { toggleDemoAnimation } from '../../actions/ui-actions';
 
-
 const KEYSTROKE_DELAY = 130;
+const DEMO_USERNAME = 'wolfiemoz';
+const DEMO_PASSWORD = 'sonata';
 
 class DemoForm extends React.Component {
   constructor(props) {
@@ -15,8 +16,8 @@ class DemoForm extends React.Component {
       password: '',
     };
 
-    this.username = 'wolfiemoz';
-    this.password = 'symphony';
+    this.username = DEMO_USERNAME;
+    this.password = DEMO_PASSWORD;
 
     this.animate = this.animate.bind(this);
     this.nextFrame = this.nextFrame.bind(this);
@@ -24,16 +25,22 @@ class DemoForm extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.animating) {
-
       this.setState({
         username: '',
         password: ''
       });
 
-      setTimeout(this.animate, 500);
+      this.timeout = setTimeout(this.animate, 500);
     } else {
       clearTimeout(this.timeout);
     }
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    $('#guest-demo-modal').modal('toggle');
+    clearTimeout(this.timeout);
+    this.props.handleSubmit();
   }
 
   animate() {
@@ -46,30 +53,9 @@ class DemoForm extends React.Component {
       } else {
         this.nextFrame('password');
       }
-
-      setTimeout(this.animate, KEYSTROKE_DELAY);
+      this.timeout = setTimeout(this.animate, KEYSTROKE_DELAY);
     }
   }
-
-
-
-
-
-  //   }
-  // }
-  //   if (this.state.username !== this.username) {
-  //     this.updateField('username');
-  //     this.timeout = setTimeout(this.animate, KEYSTROKE_DELAY);
-  //   } else if (this.state.password !== this.password) {
-  //     this.updateField('password');
-  //     this.timeout = setTimeout(this.animate, KEYSTROKE_DELAY);
-  //   } else {
-  //     this.timeout = setTimeout(this.animate, KEYSTROKE_DELAY);
-  //     toggleDemoAnimation();
-  //     console.log(this.state);
-  //     // this.props.handleSubmit(this.state);
-  //   }
-  // }
 
   nextFrame(field) {
     this.setState(
@@ -79,7 +65,7 @@ class DemoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={ this.handleSubmit }>
+      <form>
         <div className="form-group row">
           <label htmlFor="username">Username:</label>
           <input
@@ -88,14 +74,6 @@ class DemoForm extends React.Component {
             type="text"
             value={this.state.username}
           />
-          {/* <Field
-            className="form-control"
-            name="username"
-            component="input"
-            type="text"
-            placeholder="Username"
-            value={this.state.username}
-          /> */}
         </div>
         <div className="form-group row">
           <label htmlFor="password">Password:</label>
@@ -108,6 +86,7 @@ class DemoForm extends React.Component {
         </div>
         <button
           className="btn btn-primary btn-form"
+          onClick={this.handleClick.bind(this)}
         >
           Sign In
         </button>

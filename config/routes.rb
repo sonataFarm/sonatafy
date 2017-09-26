@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     get 'users/current', to: 'users#current'
 
     resources :playlists, only: [:show, :create, :destroy]
-    resources :users, only: [:create, :show]
+    resources :users, only: [:create, :show] do
+      resources :playlists, only: [:index]
+    end
     resource :session, only: [:create, :destroy]
 
     get 'tracks/:id', to: 'tracks#show'
@@ -14,4 +16,5 @@ Rails.application.routes.draw do
     get 'composers/:id', to: 'composers#show'
     get 'performers/:id', to: 'performers#show'
   end
+  get '*path', to: 'static_pages#root'
 end
