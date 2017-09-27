@@ -6,8 +6,7 @@ import LoadingIcon from '../shared/loading';
 
 class PlaylistDetail extends React.Component {
   componentWillMount() {
-    debugger;
-    this.props.fetchSinglePlaylist(this.props.match.params.id)
+    this.props.fetchSinglePlaylist(this.props.match.params.id);
   }
 
   render() {
@@ -17,7 +16,7 @@ class PlaylistDetail extends React.Component {
       return (
         <div>
           <PlaylistDetailHeader playlist={ this.props.playlist }/>
-          <TrackList />
+          <TrackList tracks={this.props.tracks}/>
         </div>
       );
     }

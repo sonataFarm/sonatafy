@@ -12,6 +12,7 @@ export const selectUserPlaylists = (state, userID) => {
 
 export const selectPlaylistDetails = (state, playlistID) => {
   const playlist = state.entities.playlists[playlistID];
+
   if (!playlist) {
     return {};
   }
@@ -28,14 +29,20 @@ export const selectPlaylistDetails = (state, playlistID) => {
 }
 
 export const selectTrackDetails = (state, trackID) => {
-  const track = state.entities.tracks[trackID];
-  const album = state.entities.albums[track.album_id];
-  const composer = state.entities.composers[album.composer_id];
+  let { tracks, albums, composers } = state.entities;
+
+  const track = tracks[trackID];
+  if (!track) return {};
+
+  const album = albums[track.album_id];
+  if (!album) return {};
+
+  const composer = composers[album.composer_id];
 
   return {
     ...track,
-    album: (album ? album.title : undefined),
-    composer: (composer ? composer.name : undefined)
+    album: album.name,
+    composer: composer.name
   }
 }
 
