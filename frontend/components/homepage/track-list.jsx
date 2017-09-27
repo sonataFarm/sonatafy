@@ -10,9 +10,9 @@ class TrackList extends React.Component {
 
     return (
       <div>
-        <h2>
+        <span className="category-header">
           Track List
-        </h2>
+        </span>
         <ul>
           {trackListItems}
         </ul>

@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TrackListItem = ({ track }) => (
-  <li>
+  <Link
+    className="track-list-item list-group-item list-group-item-action"
+    to="#">
     {track.title}
-  </li>
+  </Link>
 );
 
 export default TrackListItem;

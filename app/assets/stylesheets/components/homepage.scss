@@ -1,0 +1,45 @@
+@import '../base/variables';
+
+.homepage {
+  background: $dark-blue;
+  color: $sky-blue;
+
+  a {
+    font-size: 10px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  .content {
+    height: 80vh;
+  }
+  .content-area {
+    border: 1px solid $dark-grey;
+  }
+
+  .category-header {
+    font-family: $font-loud;
+    font-size: 13px;
+    color: $sky-blue;
+  }
+
+  .menu-list-item {
+    background: $dark-blue;
+    border-radius: 0;
+    &:hover {
+      background: white;
+    }
+  }
+
+  .playlist-list-item {
+    color: $white;
+    background: $dark-grey;
+    font-size: 10px;
+    &:hover {
+      background: $slate-blue;
+      color: white;
+    }
+  }
+}

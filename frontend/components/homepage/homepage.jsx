@@ -6,11 +6,11 @@ import { Route } from 'react-router-dom';
 
 const Homepage = props => {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="test col-4 col-md-3"><LeftSidebar /></div>
-        <div className="test col-8 col-md-6"><MainContent logout={props.logout}/></div>
-        <div className="test col"><RightSidebar /></div>
+    <div className="container homepage">
+      <div className="row content">
+        <div className="content-area col-4 col-md-3"><LeftSidebar /></div>
+        <div className="content-area col-8 col-md-6"><MainContent logout={props.logout}/></div>
+        <div className="content-area col"><RightSidebar /></div>
       </div>
     </div>
   )

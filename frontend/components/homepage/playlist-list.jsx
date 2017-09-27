@@ -6,10 +6,12 @@ const PlaylistList = ({ playlists }) => {
     playlist => <PlaylistListItem key={playlist.id} playlist={playlist} />
   );
   return (
-    <ul>
-      <li>Playlists:</li>
-      {playlistListItems}
-    </ul>
+    <div className="playlist-list">
+      <span className="category-header">Your Playlists</span>
+      <div className="list-group">
+        {playlistListItems}
+      </div>
+    </div>
   );
 }
 
