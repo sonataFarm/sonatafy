@@ -6,8 +6,8 @@ import PlaylistsReducer from './reducers/entities/playlists-reducer';
 
 // !!!testing
 import { login } from './actions/session-actions';
-import * as actions from './actions/playlist-actions';
-import { selectPlaylistsByUserID } from './selectors/selectors';
+import { fetchSinglePlaylist } from './actions/playlist-actions';
+import { selectPlaylistTracks, selectUser, selectPlaylistDetails } from './selectors/selectors';
 // !!!
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,8 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.store = store;
   window.login = login;
   window.PlaylistsReducer = PlaylistsReducer;
-  window.actions = actions;
-  window.selectPlaylistsByUserID = selectPlaylistsByUserID;
+  window.selectPlaylistTracks = selectPlaylistTracks;
+  window.selectUser = selectUser;
+  window.fetchSinglePlaylist = fetchSinglePlaylist;
+  window.selectPlaylistDetails = selectPlaylistDetails;
   // !!!
 
   const root = document.getElementById('root');

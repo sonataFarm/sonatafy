@@ -2,7 +2,7 @@ import PlaylistReducer from './playlist-reducer';
 
 import {
   RECEIVE_PLAYLISTS,
-  RECEIVE_PLAYLIST,
+  RECEIVE_SINGLE_PLAYLIST,
   REMOVE_PLAYLIST
  } from '../../actions/playlist-actions';
 
@@ -18,7 +18,7 @@ const PlaylistsReducer = (state = {}, action) => {
         ...action.playlists
       };
 
-    case RECEIVE_PLAYLIST:
+    case RECEIVE_SINGLE_PLAYLIST:
       return {
         ...state,
         ...PlaylistReducer(null, action)

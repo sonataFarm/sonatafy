@@ -3,7 +3,11 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
-  has_many :playlists
+  has_many :playlists,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Playlist
+
   before_validation :ensure_session_token
 
   def self.find_by_credentials(username, password)

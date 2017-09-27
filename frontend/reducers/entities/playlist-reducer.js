@@ -1,9 +1,9 @@
-import { RECEIVE_PLAYLIST } from '../../actions/playlist-actions';
+import { RECEIVE_SINGLE_PLAYLIST } from '../../actions/playlist-actions';
 
 const PlaylistReducer = (state = {}, action) => {
   switch (action.type) {
-    case RECEIVE_PLAYLIST:
-      return action.playlist;
+    case RECEIVE_SINGLE_PLAYLIST:
+      return action.payload.playlist;
     default:
       return state;
   }

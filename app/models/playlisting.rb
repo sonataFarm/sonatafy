@@ -3,5 +3,5 @@ class Playlisting < ApplicationRecord
 
   belongs_to :playlist
   belongs_to :track
-  has_one :user, through: :playlist
+  has_one :user, through: :playlist, source: :author
 end

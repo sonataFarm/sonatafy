@@ -1,4 +1,4 @@
-const fetchPlaylist = id => (
+const fetchSinglePlaylist = id => (
   $.ajax({
     method: 'GET',
     url: `api/playlists/${id}`
@@ -57,7 +57,7 @@ const fetchPerformer = id => (
 );
 
 export default {
-  fetchPlaylist,
+  fetchSinglePlaylist,
   createPlaylist,
   updatePlaylist,
   destroyPlaylist,
