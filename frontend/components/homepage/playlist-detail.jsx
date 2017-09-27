@@ -6,7 +6,8 @@ import LoadingIcon from '../shared/loading';
 
 class PlaylistDetail extends React.Component {
   componentWillMount() {
-    this.props.fetchSinglePlaylist(this.props.match.params.playlistID)
+    debugger;
+    this.props.fetchSinglePlaylist(this.props.match.params.id)
   }
 
   render() {

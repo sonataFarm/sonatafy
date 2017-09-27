@@ -1,14 +1,14 @@
 const fetchSinglePlaylist = id => (
   $.ajax({
     method: 'GET',
-    url: `api/playlists/${id}`
+    url: `/api/playlists/${id}`
   })
 );
 
 const createPlaylist = playlist => (
   $.ajax({
     method: 'POST',
-    url: 'api/playlists',
+    url: '/api/playlists',
     data: { playlist }
   })
 );
@@ -16,7 +16,7 @@ const createPlaylist = playlist => (
 const updatePlaylist = playlist => (
   $.ajax({
     method: 'PATCH',
-    url: `api/playlists/${playlist.id}`,
+    url: `/api/playlists/${playlist.id}`,
     data: { playlist }
   })
 );
@@ -24,35 +24,35 @@ const updatePlaylist = playlist => (
 const destroyPlaylist = id => (
   $.ajax({
     method: 'DELETE',
-    url: `api/playlists/${id}`
+    url: `/api/playlists/${id}`
   })
 );
 
 const fetchTrack = id => (
   $.ajax({
     method: 'GET',
-    url: `api/tracks/${id}`
+    url: `/api/tracks/${id}`
   })
 );
 
 const fetchAlbum = id => (
   $.ajax({
     method: 'GET',
-    url: `api/albums/${id}`
+    url: `/api/albums/${id}`
   })
 );
 
 const fetchComposer = id => (
   $.ajax({
     method: 'GET',
-    url: `api/albums/${id}`
+    url: `/api/albums/${id}`
   })
 );
 
 const fetchPerformer = id => (
   $.ajax({
     method: 'GET',
-    url: `api/performers/${id}`
+    url: `/api/performers/${id}`
   })
 );
 

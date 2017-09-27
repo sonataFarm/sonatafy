@@ -13,7 +13,7 @@ const AlbumsReducer = (state = {}, action) => {
     case RECEIVE_SINGLE_PLAYLIST:
       return {
         ...state,
-        ...action.albums
+        ...action.payload.albums
       };
 
     case REMOVE_CURRENT_USER:
