@@ -11,7 +11,7 @@ const UsersReducer = (state = {}, action) => {
       };
 
     case RECEIVE_NEW_PLAYLIST:
-      const playlist_id = keys(action.playlist)[0];
+      const playlist_id = Object.keys(action.playlist)[0];
       const user_id = action.playlist[playlist_id].author_id;
 
       return {

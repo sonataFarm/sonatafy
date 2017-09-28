@@ -6,7 +6,8 @@ import Image from '../shared/image';
 const PlaylistDetailHeader = ({ playlist }) => (
   <div className="row playlist-detail-header-wrapper">
     <div className="content-area col-6">
-      <Image url={ playlist.img_url } />
+      {/* <Image url={ playlist.img_url } /> */}
+      <Image url="images/album_covers/1.jpg" />
     </div>
     <div className="content-area col-6 info-box">
       <span className="playlist-detail-header">Playlist</span>
