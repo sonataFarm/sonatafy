@@ -5,18 +5,22 @@ class TrackList extends React.Component {
   render() {
     const { tracks } = this.props;
     const trackListItems = tracks.map(
-      track => <TrackListItem key={track.id} track={track} />
+      (track, idx) => <TrackListItem key={idx} track={track} />
     );
 
     return (
-      <div>
-        <span className="category-header">
-          Track List
-        </span>
-        <ul>
+      <table className="table table-inverse track-list">
+        <thead className="category-header">
+          <tr>
+            <th className="category-header">#</th>
+            <th>Title</th>
+            <th><i className="fa fa-clock-o fa-lg" /></th>
+          </tr>
+        </thead>
+        <tbody>
           {trackListItems}
-        </ul>
-      </div>
+        </tbody>
+      </table>
     )
   }
 }

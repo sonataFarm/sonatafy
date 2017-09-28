@@ -9,7 +9,7 @@ const Homepage = props => {
     <div className="container homepage">
       <div className="row content">
         <div className="content-area col-4 col-md-3"><LeftSidebar /></div>
-        <div className="content-area col-8 col-md-6"><MainContent logout={props.logout}/></div>
+        <div className="content-area col-8 col-md-6 main-content"><MainContent logout={props.logout}/></div>
         <div className="content-area col"><RightSidebar /></div>
       </div>
     </div>

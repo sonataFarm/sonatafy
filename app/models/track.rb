@@ -1,5 +1,5 @@
 class Track < ApplicationRecord
-  validates :title, :url, :album_id, presence: true
+  validates :title, :url, :album_id, :ord, presence: true
 
   belongs_to :album
   has_many :playlistings

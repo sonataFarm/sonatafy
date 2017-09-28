@@ -1,7 +1,10 @@
 @import '../base/variables';
 
 .homepage {
-  background: $dark-blue;
+  background: url('pov.jpg');
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;              /* optional, center the image */
   color: $sky-blue;
 
   a {
@@ -22,11 +25,11 @@
   .category-header {
     font-family: $font-loud;
     font-size: 13px;
-    color: $sky-blue;
+    color: $orange;
   }
 
   .menu-list-item {
-    background: $dark-blue;
+    background: none;
     border-radius: 0;
     &:hover {
       background: white;
@@ -40,6 +43,33 @@
     &:hover {
       background: $slate-blue;
       color: white;
+    }
+  }
+
+  .track-list {
+    text-align: left;
+    th {
+      &:nth-of-type(1) {
+        border: 2px solid red;
+        width: 10%;
+      }
+      &:nth-of-type(2) {
+        border: 2px solid red;
+        width: 70%;
+      }
+      &:nth-of-type(3) {
+        width: 20%;
+      }
+    }
+  }
+
+  .track-list-item {
+    background: none;
+    i {
+      visibility: hidden;
+      &:hover {
+        visibility: visible;
+      }
     }
   }
 }
