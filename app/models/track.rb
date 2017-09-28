@@ -1,7 +1,7 @@
 class Track < ApplicationRecord
   validates :title, :album_id, :ord, presence: true
 
-  has_attached_file :audio, default_url: 'mp3/track.mp3'
+  has_attached_file :audio, default_url: '/mp3/1.mp3'
   validates_attachment_content_type :audio,
     content_type: [ 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]
 

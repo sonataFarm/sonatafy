@@ -2,6 +2,7 @@ import React from 'react';
 import LeftSidebar from './left-sidebar';
 import MainContent from './main-content';
 import RightSidebar from './right-sidebar';
+import PlayerContainer from '../player/player-container';
 import { Route } from 'react-router-dom';
 import HomepageModals from '../modals/homepage-modals';
 
@@ -13,6 +14,7 @@ const Homepage = props => {
         <div className="content-area col-8 col-md-6 main-content"><MainContent logout={props.logout}/></div>
         <div className="content-area col"><RightSidebar /></div>
       </div>
+      <PlayerContainer />
       <HomepageModals />
     </div>
   );
