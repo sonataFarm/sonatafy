@@ -5,8 +5,10 @@ import PlaylistCreateButton from './playlist-create-button';
 
 const LeftSidebar = () => (
   <div>
-    <MenuList />
-    <PlaylistListContainer />
+    <div className="scrollbar scroll-wrapper">
+      <MenuList />
+      <PlaylistListContainer />
+    </div>
     <PlaylistCreateButton />
   </div>
 );

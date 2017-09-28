@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927031515) do
+ActiveRecord::Schema.define(version: 20170928181602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,10 @@ ActiveRecord::Schema.define(version: 20170927031515) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "ord", null: false
+    t.string "mp3_file_name"
+    t.string "mp3_content_type"
+    t.integer "mp3_file_size"
+    t.datetime "mp3_updated_at"
     t.index ["title"], name: "index_tracks_on_title"
   end
 

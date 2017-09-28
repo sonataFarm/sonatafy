@@ -36,6 +36,7 @@ gem 'factory_girl'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'sprockets-rails', require: 'sprockets/railtie'
+gem 'paperclip'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

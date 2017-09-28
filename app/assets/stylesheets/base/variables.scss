@@ -1,7 +1,15 @@
 $font-loud: 'Quintessential';
+@mixin font-thin {
+  font-family: 'Heebo';
+  font-weight: 100;
+  font-size: 10px;
+}
+
 $dark-blue: #25274D;
 $dark-grey: #464866;
 $light-grey: #AAABB8;
 $sky-blue: #2E9CCA;
 $slate-blue: #29648A;
 $orange: #ffa942;
+
+$transparent-black: rgba(0, 0, 0, 0.6);

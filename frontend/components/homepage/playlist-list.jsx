@@ -7,8 +7,9 @@ const PlaylistList = ({ playlists }) => {
   );
   return (
     <div className="playlist-list">
-      <span className="category-header">Your Playlists</span>
+
       <div className="list-group">
+        <div className="category-header"> Your Playlists </div>
         {playlistListItems}
       </div>
     </div>

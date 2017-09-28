@@ -4,6 +4,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     float: right;
+    border: 2px solid white;
   }
   .info-box {
     display: flex;
@@ -21,20 +22,4 @@
 
 .playlist-detail-user {
   font-size: 0.75rem;
-}
-
-.playlist-create-container {
-  margin-top: 10px;
-}
-
-.playlist-create-container button {
-  background: white;
-  color: black;
-  border-radius: 10px;
-  border: 1px solid black;
-  &:hover {
-    background: black;
-    color: white;
-    border: 1px solid white;
-  }
 }

@@ -1,0 +1,50 @@
+@import '../base/variables';
+
+.playlist-create-container {
+  border-top: 1px solid $dark-grey;
+  border-bottom: 1px solid $dark-grey;
+  @include font-thin;
+}
+
+.playlist-create-container button {
+  background: none;
+  width: 100%;
+  border-radius: 0;
+  text-align: left;
+  color: white;
+  border: none;
+  &:hover {
+    background: black;
+    color: white;
+    border: 1px solid white;
+  }
+}
+
+.left-sidebar-container {
+  width: 100%;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
+  background: $transparent-black;
+
+  .category-header {
+    padding-left: 7px;
+  }
+}
+
+.playlist-list {
+  text-align: left;
+  font-size: 12px;
+}
+
+.playlist-list-item {
+  color: $white;
+  text-align: left;
+  background: none;
+  font-size: 10px;
+  padding-left: 7px;
+  &:hover {
+    background: $slate-blue;
+    color: white;
+  }
+}
