@@ -186,10 +186,8 @@ def seed_albums(n)
     end
 
     tracks.each_with_index do |title, idx|
-      url = 'none'
       Track.create(
         title: title,
-        url: url,
         album_id: album.id,
         ord: idx + 1
       )
