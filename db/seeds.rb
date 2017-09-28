@@ -164,7 +164,7 @@ def seed_albums(n)
     composer_name = composer.name.split[-1]
     instrument = Faker::Music.instrument
     title = "#{composer_name} #{instrument} #{album_title(album_type)}"
-    img_url = Faker::Placeholdit.image('50x50', 'jpg')
+    img_url = Faker::Placeholdit.image('150x150', 'jpg')
     album = Album.create(title: title, img_url: img_url, composer_id: composer.id)
 
     pieces = rand(1..4)

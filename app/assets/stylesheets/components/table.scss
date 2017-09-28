@@ -1,0 +1,19 @@
+@import '../base/variables';
+
+.table-hover {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    background: black;
+    &:hover {
+      background: black;
+    }
+  }
+  tr {
+    background: black;
+    &:hover {
+      background: white;
+    }
+  }
+}

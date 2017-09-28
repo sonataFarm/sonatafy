@@ -22,7 +22,7 @@ class PlaylistDetail extends React.Component {
       return <LoadingIcon />
     } else {
       return (
-        <div>
+        <div className="playlist-detail">
           <PlaylistDetailHeader playlist={ this.props.playlist }/>
           <TrackList tracks={this.props.tracks}/>
         </div>

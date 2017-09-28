@@ -14,4 +14,8 @@ class Playlist < ApplicationRecord
   def ordered_track_ids
     tracks.order('playlistings.ord').pluck(:id)
   end
+
+  def img_url
+    albums.first.img_url
+  end
 end

@@ -1,11 +1,11 @@
 @import '../base/variables';
 
 .homepage {
-  background: url('pov.jpg');
+  background: url('music.jpg');
   background-size:     cover;                      /* <------ */
   background-repeat:   no-repeat;
   background-position: center center;              /* optional, center the image */
-  color: $sky-blue;
+  color: white;
 
   a {
     font-size: 10px;
@@ -25,20 +25,27 @@
   .category-header {
     font-family: $font-loud;
     font-size: 13px;
-    color: $orange;
+    color: white;
   }
 
   .menu-list-item {
     background: none;
     border-radius: 0;
+    border: none;
     &:hover {
       background: white;
+    }
+    &:first-of-type {
+      margin-top: 10px;
+    }
+    &:last-of-type {
+      margin-bottom: 10px;
     }
   }
 
   .playlist-list-item {
     color: $white;
-    background: $dark-grey;
+    background: rgba(0, 0, 0, 0.6);
     font-size: 10px;
     &:hover {
       background: $slate-blue;
@@ -46,20 +53,30 @@
     }
   }
 
+  .track-list-wrapper {
+    height: 50vh;
+    overflow: auto;
+    margin-bottom: 20px;
+  }
+
   .track-list {
     text-align: left;
+    overflow: scroll;
+    font-size: 0.6rem;
+
     th {
       &:nth-of-type(1) {
-        border: 2px solid red;
         width: 10%;
       }
       &:nth-of-type(2) {
-        border: 2px solid red;
         width: 70%;
       }
       &:nth-of-type(3) {
         width: 20%;
       }
+    }
+    tr {
+      height: 10px;
     }
   }
 
@@ -72,4 +89,14 @@
       }
     }
   }
+
+  .track-list-row {
+    &:hover {
+      background: none;
+    }
+  }
+}
+
+.main-content {
+  overflow: hidden;
 }

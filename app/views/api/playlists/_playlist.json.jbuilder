@@ -3,4 +3,5 @@ json.set! playlist.id do
   json.title   playlist.title
   json.tracks  playlist.ordered_track_ids
   json.author_id playlist.author_id
+  json.img_url playlist.img_url
 end
