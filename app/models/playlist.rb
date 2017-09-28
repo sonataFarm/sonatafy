@@ -16,6 +16,6 @@ class Playlist < ApplicationRecord
   end
 
   def img_url
-    albums.first.img_url
+    albums.first ? albums.first.img_url : nil
   end
 end

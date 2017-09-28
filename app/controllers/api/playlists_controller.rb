@@ -5,7 +5,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def index
-    user = User.find_by_id(params[:user_id])
+    user = User.find_by_id(params[:author_id])
     @playlists = user.playlists
   end
 
@@ -13,7 +13,8 @@ class Api::PlaylistsController < ApplicationController
     @playlist = Playlist.new(playlist_params)
 
     if @playlist.save
-      render 'api/playlists/show'
+      render partial: 'api/playlists/playlist.json.jbuilder',
+        locals: { playlist: @playlist }
     else
       render json: @playlist.errors.full_messages
     end
@@ -30,6 +31,6 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def playlist_params
-    params.require(:playlist).permit(:title, :user_id)
+    params.require(:playlist).permit(:title, :author_id)
   end
 end

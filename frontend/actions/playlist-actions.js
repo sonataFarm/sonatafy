@@ -9,6 +9,7 @@ export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
 export const RECEIVE_SINGLE_PLAYLIST = 'RECEIVE_SINGLE_PLAYLIST';
 export const REMOVE_PLAYLIST = 'REMOVE_PLAYLIST';
 export const START_LOADING_SINGLE_PLAYLIST = 'START_LOADING_SINGLE_PLAYLIST';
+export const RECEIVE_NEW_PLAYLIST = 'RECEIVE_NEW_PLAYLIST';
 
 export const receivePlaylists = playlists => ({
   type: RECEIVE_PLAYLISTS,
@@ -25,6 +26,11 @@ export const removePlaylist = id => ({
   id
 });
 
+export const receiveNewPlaylist = playlist => ({
+  type: RECEIVE_NEW_PLAYLIST,
+  playlist
+});
+
 export const startLoadingSinglePlaylist = () => ({
   type: START_LOADING_SINGLE_PLAYLIST
 });
@@ -37,11 +43,13 @@ export const fetchSinglePlaylist = id => dispatch => {
     )
 };
 
-export const createPlaylist = playlist => dispatch => (
-  APIUtil.entities.createPlaylist(playlist)
-    .then(
-      playlist => dispatch(receiveSinglePlaylist(playlist))
-    )
+export const createPlaylist = playlist => (dispatch, getState) => (
+  APIUtil.entities.createPlaylist({
+    ...playlist,
+    author_id: getState().session.currentUser.id
+  }).then(
+    playlist => dispatch(receiveNewPlaylist(playlist))
+  )
 );
 
 export const destroyPlaylist = id => dispatch => (

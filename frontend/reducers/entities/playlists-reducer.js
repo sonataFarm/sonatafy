@@ -3,6 +3,7 @@ import PlaylistReducer from './playlist-reducer';
 import {
   RECEIVE_PLAYLISTS,
   RECEIVE_SINGLE_PLAYLIST,
+  RECEIVE_NEW_PLAYLIST,
   REMOVE_PLAYLIST
  } from '../../actions/playlist-actions';
 
@@ -24,10 +25,14 @@ const PlaylistsReducer = (state = {}, action) => {
         ...PlaylistReducer(null, action)
       };
 
-    case REMOVE_PLAYLIST:
-      let newState = {
-        ...state
+    case RECEIVE_NEW_PLAYLIST:
+      return {
+        ...state,
+        ...PlaylistReducer(null, action)
       };
+
+    case REMOVE_PLAYLIST:
+      let newState = { ...state };
       delete newState[action.id];
       return newState;
 
