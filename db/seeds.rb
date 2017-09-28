@@ -27,12 +27,11 @@ def getRandomTempo
   tempo_modifications = %w[
     ma\ non\ troppo grazioso appassionato espressivo con\ amore affettuoso
     bruscamente con\ bravura con\ brio con\ fuoco dolce misterioso
-    sostenuto
+    sostenuto ma\ non\ troppo
   ]
 
   tempo = tempo_markings.sample
-
-  modified = (rand(1) > 0)
+  modified = (rand(0..1) > 0)
   modified ? "#{tempo} #{tempo_modifications.sample}" : tempo
 end
 
@@ -157,6 +156,17 @@ def seed_performers(performers)
 end
 
 def seed_albums(n)
+  album_covers = [
+    "https://image.ibb.co/gOXU15/1.jpg",
+    "https://image.ibb.co/fVJ2M5/2.jpg",
+    "https://image.ibb.co/fc4bg5/3.jpg",
+    "https://image.ibb.co/iUKnok/4.jpg",
+    "https://image.ibb.co/hh4bg5/5.jpg",
+    "https://image.ibb.co/jYa4ZQ/6.jpg",
+    "https://image.ibb.co/dcgNM5/7.jpg",
+    "https://image.ibb.co/kpZbg5/8.jpg"
+  ]
+
   n.times do
     album_type = [:sonata, :suite, :concerto, :symphony].sample
 
@@ -164,7 +174,7 @@ def seed_albums(n)
     composer_name = composer.name.split[-1]
     instrument = Faker::Music.instrument
     title = "#{composer_name} #{instrument} #{album_title(album_type)}"
-    img_url = "/album_covers/#{rand(1..8)}.jpg"
+    img_url = album_covers.sample
     # img_url = Faker::Placeholdit.image('150x150', 'jpg')
     album = Album.create(title: title, img_url: img_url, composer_id: composer.id)
 
@@ -205,7 +215,15 @@ def seed_credits(min, max)
   end
 end
 
+def seed_mozart
+  username = 'wolfiemoz'
+  password = 'sonata'
+  email = 'amadeus@aol.com'
+  User.create(username: username, password: password, email: email)
+end
+
 def seed_users(n)
+  seed_mozart
   n.times do |i|
     username = Faker::GameOfThrones.city.downcase
     email = "#{username}@aol.com"
