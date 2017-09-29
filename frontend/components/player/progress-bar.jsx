@@ -10,23 +10,28 @@ class ProgressBar extends React.Component {
       secondsElapsed: 0
     };
 
-    this.updateTime = this.updateTime.bind(this);
+    this.progress = this.progress.bind(this);
+  }
+
+  handleClick(e) {
+    debugger;
+    this.props.seek(e);
   }
 
   componentWillReceiveProps(newProps) {
     if (newProps.howl) {
       let duration = newProps.howl.duration();
-
       let secondsElapsed;
+
       try { secondsElapsed = newProps.howl.seek(); }
-      catch(e) { secondsElapsed = 0; }
+      catch (e) { secondsElapsed = 0; }
 
       this.setState({
         duration,
         secondsElapsed
       });
 
-      this.interval = setInterval(this.updateTime, 1000);
+      this.interval = setInterval(this.progress, 1000);
     }
   }
 
@@ -34,21 +39,35 @@ class ProgressBar extends React.Component {
     clearInterval(this.interval);
   }
 
-  updateTime() {
+  progress() {
+    const duration = this.props.howl.duration();
+    const secondsElapsed = this.props.howl.seek();
+
+    let progressRatio = secondsElapsed / duration;
+    progressRatio = isNaN(progressRatio) ? 0 : progressRatio;
+
     this.setState({
-      duration: this.props.howl.duration(),
-      secondsElapsed: this.props.howl.seek()
+      duration,
+      secondsElapsed,
+      progressRatio
     });
   }
 
   render() {
+    let{ secondsElapsed, duration, progressRatio } = this.state;
     return (
       <div className="progress-bar-container">
         <div className="timestamps-container">
-          <span>{formatTime(this.state.secondsElapsed)}</span>
-          <span>{formatTime(this.state.duration)}</span>
+          <span>{formatTime(secondsElapsed)}</span>
+          <span>{formatTime(duration)}</span>
         </div>
-        <div className="progress-bar"></div>
+        <div className="progress-bar" onClick={this.handleClick.bind(this)}>
+          <div
+            className="progress-bar-played"
+            style={{width: `${progressRatio * 100}%`}}></div>
+          <div className="progress-bar-unplayed"
+            style={{width: `${(1 - progressRatio) * 100}%`}}></div>
+        </div>
       </div>
     );
   }

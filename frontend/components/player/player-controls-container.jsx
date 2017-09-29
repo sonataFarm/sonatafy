@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PlayerControls from './player-controls';
-import { play, pause } from '../../actions/player-actions';
+import { play, pause, playPreviousTrack, playNextTrack } from '../../actions/player-actions';
 
 const mapStateToProps = state => ({
   currentTrack: state.ui.player.currentTrack
@@ -8,7 +8,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   play: () => dispatch(play()),
-  pause: () => dispatch(pause())
+  pause: () => dispatch(pause()),
+  playPreviousTrack: () => dispatch(playPreviousTrack()),
+  playNextTrack: () => dispatch(playNextTrack())
 });
 
 

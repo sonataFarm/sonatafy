@@ -40,6 +40,11 @@
 
 .progress-bar {
   height: 2px;
+  div {
+    height: 100%;
+  }
+  display: flex;
+  flex-direction: row;
 }
 
 .timestamps-container {
@@ -66,4 +71,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.progress-bar-unplayed {
+  background-color: #007bff
+}
+
+.progress-bar-played {
+  background-color: white;
 }
