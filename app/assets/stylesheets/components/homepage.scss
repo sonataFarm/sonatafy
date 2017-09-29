@@ -74,6 +74,9 @@
     }
     tr {
       height: 10px;
+      td {
+        padding: none !important;
+      }
     }
   }
 
@@ -100,4 +103,28 @@
 
 .main-content {
   overflow: hidden;
+}
+
+td.first-of-type {
+  text-align: center;
+}
+
+td.no-hover {
+  span { display: inline; }
+  i.hover { display: none; }
+}
+
+td.playing {
+  color: $blue;
+  .hover {
+    color: $dark-blue;
+  }
+}
+
+td.hover {
+  i.hover { display: inline; }
+  span { display: none; }
+}
+
+tr {
 }

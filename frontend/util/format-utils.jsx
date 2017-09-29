@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 function padWithZeros(num, int) {
   let numString = int.toString()
   while (numString.length < num)
@@ -17,3 +19,20 @@ export const formatTime = timeInSeconds => {
 
   return `${padWithZeros(2, minutes)}:${padWithZeros(2, seconds)}`;
 }
+
+export const composerFormatShort = fullName => {
+  let names = fullName.split(' ');
+  names = names.map((name, idx) => {
+    if (idx === names.length - 1) {
+      return ' ' + name;
+    } else {
+      return name.toUpperCase()[0] + '.';
+    }
+  });
+
+  return names.join('');
+};
+
+export const ComposerFormat = {
+  short: composerFormatShort
+};

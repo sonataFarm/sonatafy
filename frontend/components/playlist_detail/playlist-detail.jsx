@@ -8,6 +8,7 @@ class PlaylistDetail extends React.Component {
   componentWillMount() {
     const id = parseInt(this.props.match.params.playlistID);
     this.props.fetchSinglePlaylist(id);
+    debugger;
   }
 
   componentWillReceiveProps(newProps) {
@@ -18,13 +19,14 @@ class PlaylistDetail extends React.Component {
   }
 
   render() {
-    if (this.props.loading) {
+    debugger;
+    // if (this.props.loading) {
       return <LoadingIcon />
     } else {
       return (
         <div className="playlist-detail">
           <PlaylistDetailHeader playlist={ this.props.playlist }/>
-          <TrackListContainer tracks={this.props.tracks}/>
+          <TrackListContainer tracks={this.props.tracks} />
         </div>
       );
     }

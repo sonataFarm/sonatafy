@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatTime } from '../../util/time-format-utils'
+import { formatTime } from '../../util/format-utils'
 
 class ProgressBar extends React.Component {
 
