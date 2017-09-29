@@ -1,0 +1,43 @@
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  .group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.history-nav-container i {
+  color: black;
+  &:hover {
+    color: white;
+    transition: ease-in 200ms;
+  }
+  margin: 0 5px;
+}
+
+.visitor-nav-container img {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.visitor-nav-container {
+  @include font-thin-md;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    margin-left: 5px;
+  }
+
+  i {
+    margin-left: 8px;
+  }
+}

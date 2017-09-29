@@ -1,12 +1,15 @@
 import React from 'react';
-import NavbarContainer from './navbar-container';
+import NavbarContainer from '../navbar/navbar-container';
 import { Route, Switch } from 'react-router-dom';
-import PlaylistDetailContainer from './playlist-detail-container';
+import PlaylistDetailContainer from '../playlist_detail/playlist-detail-container';
 
 const MainContent = () => (
-  <Switch className="main-content">
-    <Route path="/playlists/:playlistID" component={PlaylistDetailContainer} />
-  </Switch>
+  <div className="main-content">
+    <NavbarContainer />
+    <Switch>
+      <Route path="/playlists/:playlistID" component={PlaylistDetailContainer} />
+    </Switch>
+  </div>
 );
 
 export default MainContent;

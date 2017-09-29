@@ -1,5 +1,5 @@
 import React from 'react';
-import LeftSidebar from './left-sidebar';
+import LeftSidebar from '../left_sidebar/left-sidebar';
 import MainContent from './main-content';
 import RightSidebar from './right-sidebar';
 import PlayerContainer from '../player/player-container';

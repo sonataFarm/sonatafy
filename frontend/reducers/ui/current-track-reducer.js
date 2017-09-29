@@ -1,5 +1,4 @@
-import { PLAY, PAUSE, START_LOADING_CURRENT_TRACK, RECEIVE_CURRENT_TRACK } from '../../actions/player-actions';
-import { ENQUEUE_TRACKS } from '../../actions/queue-actions';
+import { PLAY, PAUSE, ENQUEUE_TRACKS, START_LOADING_CURRENT_TRACK, RECEIVE_CURRENT_TRACK } from '../../actions/player-actions';
 
 const CurrentTrackReducer = (state = {}, action) => {
   switch (action.type) {

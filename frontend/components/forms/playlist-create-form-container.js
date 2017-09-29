@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import PlaylistCreateForm from './playlist-create-form';
 import { createPlaylist } from '../../actions/playlist-actions';
-import { withRouter } from 'react-router-dom';
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onSubmit: playlist => {

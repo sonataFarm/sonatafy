@@ -1,9 +1,8 @@
 import QueueReducer from './queue-reducer';
 import CurrentTrackReducer from './current-track-reducer';
 0
-import { PLAY, PAUSE, QUEUE_PREVIOUS_TRACK, QUEUE_NEXT_TRACK } from '../../actions/player-actions';
+import { PLAY, PAUSE, QUEUE_PREVIOUS_TRACK, ENQUEUE_TRACKS, QUEUE_NEXT_TRACK } from '../../actions/player-actions';
 import { RECEIVE_CURRENT_TRACK } from '../../actions/track-actions';
-import { ENQUEUE_TRACKS } from '../../actions/queue-actions';
 
 // state = {
 //   queue: [3, 4, 5, 1, 2],

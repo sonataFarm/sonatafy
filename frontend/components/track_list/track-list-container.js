@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TrackList from './track-list';
-import { enqueuePlaylist } from '../../actions/queue-actions';
+import { enqueuePlaylist } from '../../actions/player-actions';
 
 const mapDispatchToProps = dispatch => ({
   enqueuePlaylist: (playlist, startIdx) =>

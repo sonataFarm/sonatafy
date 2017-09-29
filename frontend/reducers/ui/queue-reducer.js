@@ -1,5 +1,4 @@
-import { ENQUEUE_TRACKS } from '../../actions/queue-actions';
-import { QUEUE_PREVIOUS_TRACK, QUEUE_NEXT_TRACK } from '../../actions/player-actions';
+import { QUEUE_PREVIOUS_TRACK, QUEUE_NEXT_TRACK, ENQUEUE_TRACKS } from '../../actions/player-actions';
 
 const QueueReducer = (state = [], action) => {
   switch (action.type) {

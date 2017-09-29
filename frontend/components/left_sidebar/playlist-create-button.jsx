@@ -6,7 +6,8 @@ const buttonText =
   <div>
     <i className="fa fa-plus-circle" aria-hidden="true"></i>
      {' '}New Playlist
- </div>
+ </div>;
+
 const PlaylistCreateButton = () => (
   <div className="playlist-create-container">
     <ModalButton

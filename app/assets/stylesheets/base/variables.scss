@@ -5,6 +5,20 @@ $font-loud: 'Quintessential';
   font-size: 10px;
 }
 
+@mixin font-thin-md {
+  font-family: 'Heebo';
+  font-weight: 200;
+  font-size: 12px;
+}
+
+@mixin hover-icon {
+  color: grey;
+  &:hover {
+    color: white;
+    transition: ease-in 200ms;
+  }
+}
+
 $dark-blue: #25274D;
 $dark-grey: #464866;
 $light-grey: #AAABB8;

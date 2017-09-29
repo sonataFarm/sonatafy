@@ -14,7 +14,6 @@ class ProgressBar extends React.Component {
   }
 
   handleClick(e) {
-    debugger;
     this.props.seek(e);
   }
 

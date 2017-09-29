@@ -1,7 +1,7 @@
-import { receiveTracks } from './track-actions';
+import { receiveAlbums } from './album-actions';
 import { receiveComposers } from './composer-actions';
 import { receivePerformers } from './performer-actions';
-import { receiveAlbums } from './album-actions';
+import { receiveTracks } from './track-actions';
 
 import APIUtil from '../util/api-util';
 
