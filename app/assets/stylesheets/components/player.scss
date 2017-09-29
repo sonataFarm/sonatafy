@@ -1,0 +1,69 @@
+.player-container {
+  background: black;
+  height: 15vh;
+}
+
+.player-left-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+
+  img {
+    width: 75px;
+    height: 75px;
+    border: 1px solid white;
+  }
+
+  .track-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 10px;
+
+    div {
+      &:first-of-type {
+        @include font-thin;
+      }
+      &:last-of-type {
+        font-size: 8px;
+      }
+    }
+  }
+}
+
+.player-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.progress-bar {
+  height: 2px;
+}
+
+.timestamps-container {
+  @include font-thin;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.player-controls-container {
+  i {
+    margin: 0 10px 5px 10px;
+    color: grey;
+    &:hover {
+      color: white;
+      transition: ease-in 200ms;
+    }
+  }
+}
+
+.player-right-container {
+  color: grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

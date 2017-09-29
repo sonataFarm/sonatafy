@@ -8,6 +8,7 @@ import PlaylistsReducer from './reducers/entities/playlists-reducer';
 import { login } from './actions/session-actions';
 import { fetchSinglePlaylist } from './actions/playlist-actions';
 import { selectPlaylistTracks, selectUser, selectPlaylistDetails } from './selectors/selectors';
+import { fetchCurrentTrack } from './actions/track-actions';
 // !!!
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.selectUser = selectUser;
   window.fetchSinglePlaylist = fetchSinglePlaylist;
   window.selectPlaylistDetails = selectPlaylistDetails;
+  window.fetchCurrentTrack = fetchCurrentTrack;
   // !!!
 
   const root = document.getElementById('root');

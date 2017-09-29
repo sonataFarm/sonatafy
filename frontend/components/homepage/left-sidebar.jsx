@@ -4,7 +4,7 @@ import PlaylistListContainer from './playlist-list-container';
 import PlaylistCreateButton from './playlist-create-button';
 
 const LeftSidebar = () => (
-  <div>
+  <div className="left-sidebar-inner-container">
     <div className="scrollbar scroll-wrapper">
       <MenuList />
       <PlaylistListContainer />

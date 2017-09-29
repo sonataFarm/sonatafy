@@ -136,7 +136,7 @@ def seed_database
 
   seed_composers(composers)
   seed_performers(performers)
-  seed_albums(1)
+  seed_albums(50)
   seed_credits(1, 5)
   seed_users(10)
   seed_playlists(10, 15)
@@ -186,10 +186,12 @@ def seed_albums(n)
     end
 
     tracks.each_with_index do |title, idx|
+      audio = "audio#{rand(1..39)}.mp3"
       Track.create(
         title: title,
         album_id: album.id,
-        ord: idx + 1
+        ord: idx + 1,
+        audio: audio
       )
     end
   end

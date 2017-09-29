@@ -1,16 +1,15 @@
 import { connect } from 'react-redux';
+import { startLoadingCurrentTrack, play } from '../../actions/player-actions';
 import Player from './player';
 
-const mapStateToProps = state => {
-  debugger;
-  let track;
-  const track_id = Object.keys(state.entities.tracks)[0];
-  if (track_id) {
-    track = state.entities.tracks[track_id];
-  } else {
-    track = null;
-  }
-  return { track };
-}
+const mapStateToProps = state => ({
+  player: state.ui.player,
+  playing: state.ui.player.currentTrack.status === 'PLAYING'
+})
 
-export default connect(mapStateToProps)(Player)
+const mapDispatchToProps = dispatch => ({
+  startLoadingCurrentTrack: () => dispatch(startLoadingCurrentTrack()),
+  play: () => dispatch(play())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Player)

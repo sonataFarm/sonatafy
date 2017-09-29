@@ -1,18 +1,18 @@
 import React from 'react';
 import PlaylistDetailHeader from './playlist-detail-header';
-import TrackList from './track-list';
+import TrackListContainer from './track-list-container';
 import { fetchSinglePlaylist } from '../../actions/playlist-actions';
 import LoadingIcon from '../shared/loading';
 
 class PlaylistDetail extends React.Component {
   componentWillMount() {
-    const id = parseInt(this.props.match.params.id);
+    const id = parseInt(this.props.match.params.playlistID);
     this.props.fetchSinglePlaylist(id);
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.match.params.id !== this.props.match.params.id) {
-      const id = parseInt(newProps.match.params.id)
+    if (newProps.match.params.playlistID !== this.props.match.params.playlistID) {
+      const id = parseInt(newProps.match.params.playlistID)
       this.props.fetchSinglePlaylist(id);
     }
   }
@@ -24,7 +24,7 @@ class PlaylistDetail extends React.Component {
       return (
         <div className="playlist-detail">
           <PlaylistDetailHeader playlist={ this.props.playlist }/>
-          <TrackList tracks={this.props.tracks}/>
+          <TrackListContainer tracks={this.props.tracks}/>
         </div>
       );
     }

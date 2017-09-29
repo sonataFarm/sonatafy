@@ -5,7 +5,7 @@ import { selectPlaylistTracks, selectUser } from '../../selectors/selectors';
 import PlaylistDetail from './playlist-detail';
 
 const mapStateToProps = (state, { match }) => {
-  const playlistID = match.params.id;
+  const playlistID = match.params.playlistID;
   const playlist = selectPlaylistDetails(state, playlistID);
   const tracks = selectPlaylistTracks(state, playlistID);
 

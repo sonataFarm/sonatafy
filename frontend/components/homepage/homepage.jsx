@@ -8,11 +8,11 @@ import HomepageModals from '../modals/homepage-modals';
 
 const Homepage = props => {
   return (
-    <div className="container homepage">
-      <div className="row content">
+    <div className="container-fluid homepage">
+      <div className="row main-area content">
         <div className="content-area col-4 col-md-3 left-sidebar-container"><LeftSidebar /></div>
         <div className="content-area col-8 col-md-6 main-content"><MainContent logout={props.logout}/></div>
-        <div className="content-area col"><RightSidebar /></div>
+        <div className="content-area col col-md-3"><RightSidebar /></div>
       </div>
       <PlayerContainer />
       <HomepageModals />

@@ -28,7 +28,7 @@ const destroyPlaylist = id => (
   })
 );
 
-const fetchTrack = id => (
+const fetchCurrentTrack = id => (
   $.ajax({
     method: 'GET',
     url: `/api/tracks/${id}`
@@ -61,7 +61,7 @@ export default {
   createPlaylist,
   updatePlaylist,
   destroyPlaylist,
-  fetchTrack,
+  fetchCurrentTrack,
   fetchAlbum,
   fetchComposer,
   fetchPerformer

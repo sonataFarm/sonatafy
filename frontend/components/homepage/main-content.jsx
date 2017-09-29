@@ -5,7 +5,7 @@ import PlaylistDetailContainer from './playlist-detail-container';
 
 const MainContent = () => (
   <Switch className="main-content">
-    <Route path="/playlists/:id" component={PlaylistDetailContainer} />
+    <Route path="/playlists/:playlistID" component={PlaylistDetailContainer} />
   </Switch>
 );
 

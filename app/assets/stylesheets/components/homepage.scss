@@ -6,6 +6,7 @@
   background-repeat:   no-repeat;
   background-position: center center;              /* optional, center the image */
   color: white;
+  margin: 0;
 
   a {
     font-size: 10px;
@@ -26,6 +27,10 @@
     @include font-thin;
     font-size: 10px;
     color: white;
+  }
+
+  .main-area {
+    height: 85vh;
   }
 
   .menu-list-item {

@@ -2,10 +2,17 @@ import React from 'react';
 import TrackListItem from './track-list-item';
 
 class TrackList extends React.Component {
+
   render() {
-    const { tracks } = this.props;
+    const { tracks, enqueuePlaylist } = this.props;
     const trackListItems = tracks.map(
-      (track, idx) => <TrackListItem key={idx} ord={idx + 1} track={track} />
+      (track, idx) =>
+      <TrackListItem
+        enqueuePlaylist={enqueuePlaylist}
+        key={idx}
+        idx={idx}
+        track={track}
+      />
     );
 
     return (
@@ -24,6 +31,14 @@ class TrackList extends React.Component {
         </table>
       </div>
     )
+  }
+
+  handleClick(e) {
+    startIdx = e.currentTarget.ord - 1;
+    this.props.enqueuePlaylist(
+      this.props.playlist,
+      startIdx
+    );
   }
 }
 
