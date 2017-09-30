@@ -47,13 +47,7 @@
       margin-bottom: 10px;
     }
   }
-
-  .track-list-wrapper {
-    height: 50vh;
-    overflow: auto;
-    margin-bottom: 20px;
-  }
-
+  
   .track-list {
     text-align: left;
     font-size: 0.6rem;
@@ -102,7 +96,8 @@
 }
 
 .main-content {
-  overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 td.first-of-type {
@@ -126,5 +121,11 @@ td.hover {
   span { display: none; }
 }
 
-tr {
+td {
+  span {
+    &:last-of-type {
+      color: $light-grey;
+      text-overflow: ellipsis;
+    }
+  }
 }

@@ -8,7 +8,6 @@ class PlaylistDetail extends React.Component {
   componentWillMount() {
     const id = parseInt(this.props.match.params.playlistID);
     this.props.fetchSinglePlaylist(id);
-    debugger;
   }
 
   componentWillReceiveProps(newProps) {
@@ -19,9 +18,8 @@ class PlaylistDetail extends React.Component {
   }
 
   render() {
-    debugger;
-    // if (this.props.loading) {
-      return <LoadingIcon />
+    if (this.props.loading) {
+      return <LoadingIcon />;
     } else {
       return (
         <div className="playlist-detail">

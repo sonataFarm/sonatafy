@@ -42,7 +42,7 @@ class TrackListItem extends React.Component {
             <i className="hover fa fa-play-circle fa-lg"></i>
           </td>
         )}
-        <td><span>{track.title}</span><span>{composer}</span></td>
+        <td><span>{track.title}</span>{'  '}<span>{composer}</span></td>
         <td>{Math.ceil((Math.random() * 5))}</td>
       </tr>
     );

@@ -5,7 +5,6 @@ class TrackList extends React.Component {
 
   render() {
     const { tracks, enqueuePlaylist, currentTrack } = this.props;
-    debugger;
     const trackListItems = tracks.map(
       (track, idx) =>
       <TrackListItem
@@ -18,7 +17,7 @@ class TrackList extends React.Component {
     );
 
     return (
-      <div className="track-list-wrapper scrollbar">
+      <div className="row row-margin scroll-wrapper scrollbar">
         <table className="table table-inverse track-list table-hover">
           <thead className="category-header">
             <tr>

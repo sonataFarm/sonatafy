@@ -10,9 +10,13 @@ const Homepage = props => {
   return (
     <div className="container-fluid homepage">
       <div className="row main-area content">
-        <div className="content-area col-4 col-md-3 left-sidebar-container"><LeftSidebar /></div>
-        <div className="content-area col-8 col-md-6 main-content"><MainContent logout={props.logout}/></div>
-        <div className="content-area col col-md-3"><RightSidebar /></div>
+        <div className="content-area col-3 col-md-2 left-sidebar-container"><LeftSidebar /></div>
+        <div className="content-area col-9 col-md-8">
+            <MainContent logout={props.logout}/>
+        </div>
+        <div className="content-area col col-md-2">
+          <RightSidebar />
+        </div>
       </div>
       <PlayerContainer />
       <HomepageModals />

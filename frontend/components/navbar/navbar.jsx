@@ -10,7 +10,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <div className="navbar-container">
+      <div className="row row-margin navbar-container">
         <div className="group">
           <HistoryNav />
           <SearchBarContainer />

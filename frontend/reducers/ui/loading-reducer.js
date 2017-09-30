@@ -4,7 +4,7 @@ import {
 } from '../../actions/playlist-actions';
 
 const initialState = {
-  playlistDetailLoading: false
+  playlistDetailLoading: true
 };
 
 const LoadingReducer = (state = initialState, action) => {

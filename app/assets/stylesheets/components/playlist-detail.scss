@@ -1,10 +1,13 @@
-.playlist-detail-header-wrapper {
-  margin-bottom: 10px;
+.playlist-detail {
+}
+
+.playlist-detail-header-container {
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
   img {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    float: right;
-    border: 2px solid white;
+    margin-right: 10px;
   }
   .info-box {
     display: flex;
@@ -12,7 +15,6 @@
     align-items: start;
     justify-content: center;
   }
-
 }
 
 .playlist-detail-title {
