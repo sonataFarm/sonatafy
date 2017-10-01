@@ -14,7 +14,7 @@ const Homepage = props => {
         <div className="content-area col-9 col-md-8">
             <MainContent logout={props.logout}/>
         </div>
-        <div className="content-area col col-md-2">
+        <div className="content-area col">
           <RightSidebar />
         </div>
       </div>

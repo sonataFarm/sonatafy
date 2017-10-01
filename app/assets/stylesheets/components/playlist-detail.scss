@@ -1,4 +1,7 @@
 .playlist-detail {
+  a {
+    text-decoration: underline;
+  }
 }
 
 .playlist-detail-header-container {
@@ -15,6 +18,10 @@
     align-items: start;
     justify-content: center;
   }
+}
+
+.playlist-detail .category-header {
+  font-size: 12px;
 }
 
 .playlist-detail-title {
@@ -34,4 +41,5 @@
   @media (min-width: 768px) {
     width: 66.6666666667%;
   }
+  background: black;
 }

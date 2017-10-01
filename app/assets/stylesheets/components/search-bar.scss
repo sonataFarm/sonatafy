@@ -1,9 +1,12 @@
+
+
 .search-bar-container {
 
   input[type="text"] {
-    background: url(search-dark.png) no-repeat 10px 6px #444;
-    border: 1px solid white;
-    font: bold 12px Arial,Helvetica,Sans-serif;
+    background: url(search-dark.png) no-repeat 5px 2px #444;
+    border: 1px solid black;
+    @include font-thin;
+    font-size: 13px;
     color: #777;
     width: 150px;
     padding: 6px 15px 6px 35px;
@@ -18,10 +21,12 @@
     -moz-transition: all 0.7s ease 0s;
     -o-transition: all 0.7s ease 0s;
     transition: all 0.7s ease 0s;
-    }
+    margin-left: 5px;
+    height: 20px;
+  }
 
   input[type="text"]:focus {
-    width: 200px;
     outline: 0;
   }
+
 }

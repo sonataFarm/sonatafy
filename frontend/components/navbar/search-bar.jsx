@@ -9,7 +9,7 @@ const SearchBar = () => (
     onSuggestionsClearRequested={console.log}
     getSuggestionValue={console.log}
     renderSuggestion={console.log}
-    inputProps={{value: 'cat', onChange: console.log}}
+    inputProps={{value: '', onChange: console.log}}
   />
   </div>
 );

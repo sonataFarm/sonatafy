@@ -11,6 +11,7 @@
   flex-direction: row;
   justify-content: start;
   align-items: center;
+  width: 150px;
 
   img {
     width: 75px;
@@ -60,6 +61,7 @@
 
 .player-controls-container {
   i {
+    cursor: pointer;
     @include hover-icon;
     margin: 0 10px 5px 10px;
   }

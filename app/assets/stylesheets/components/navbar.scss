@@ -12,9 +12,9 @@
 }
 
 .history-nav-container i {
-  color: black;
+  color: $light-grey;
   &:hover {
-    color: white;
+    color: $white;
     transition: ease-in 200ms;
   }
   margin: 0 5px;

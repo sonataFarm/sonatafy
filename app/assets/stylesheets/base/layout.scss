@@ -54,3 +54,10 @@ html,body
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
