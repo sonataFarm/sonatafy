@@ -1,10 +1,6 @@
 @import '../base/variables';
 
-.homepage {
-  background: url('music.jpg');
-  background-size:     cover;                      /* <------ */
-  background-repeat:   no-repeat;
-  background-position: center center;              /* optional, center the image */
+.homepage {            /* optional, center the image */
   color: white;
   margin: 0;
 
@@ -30,7 +26,19 @@
   }
 
   .main-area {
-    height: 85vh;
+    position: fixed;
+    bottom: 90px;
+    left: 0px;
+    height: calc(100vh - 90px);
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: url('music.jpg');
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+
   }
 
   .menu-list-item {
@@ -47,7 +55,7 @@
       margin-bottom: 10px;
     }
   }
-  
+
   .track-list {
     text-align: left;
     font-size: 0.6rem;

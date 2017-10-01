@@ -1,6 +1,9 @@
 .player-container {
   background: black;
-  height: 15vh;
+  position: absolute;
+  bottom: 0;
+  height: 90px;
+  width: 100vw;
 }
 
 .player-left-container {
