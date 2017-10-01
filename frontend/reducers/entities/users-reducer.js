@@ -1,5 +1,6 @@
 import { RECEIVE_CURRENT_USER, REMOVE_CURRENT_USER } from '../../actions/session-actions';
 import { RECEIVE_NEW_PLAYLIST } from '../../actions/playlist-actions';
+import { RECEIVE_FOLLOWED_USERS } from '../../actions/user-actions';
 
 const UsersReducer = (state = {}, action) => {
   switch (action.type) {
@@ -9,6 +10,12 @@ const UsersReducer = (state = {}, action) => {
         ...state,
         ...{ [currentUser.id]: currentUser }
       };
+    case RECEIVE_FOLLOWED_USERS:
+      const { followedUsers } = action;
+      return {
+        ...state,
+        ...followedUsers
+      }
 
     case RECEIVE_NEW_PLAYLIST:
       const playlist_id = Object.keys(action.playlist)[0];

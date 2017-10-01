@@ -15,7 +15,6 @@ class TrackList extends React.Component {
         track={track}
       />
     );
-
     return (
       <div className="row scroll-wrapper scrollbar track-list-container">
         <table className="table table-inverse track-list table-hover">

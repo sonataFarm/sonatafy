@@ -8,7 +8,6 @@ const mapStateToProps = (state, { match }) => {
   const playlistID = match.params.playlistID;
   const playlist = selectPlaylistDetails(state, playlistID);
   const tracks = selectPlaylistTracks(state, playlistID);
-
   return {
     playlist,
     tracks,

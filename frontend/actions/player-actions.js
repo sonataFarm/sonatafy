@@ -1,12 +1,12 @@
 import { fetchCurrentTrack } from './track-actions';
 
-export const ENQUEUE_TRACKS = 'ENQUEUE TRACKS';
 export const PAUSE = 'PAUSE';
+export const SEEK = 'SEEK';
 export const PLAY = 'PLAY';
+export const ENQUEUE_TRACKS = 'ENQUEUE TRACKS';
 export const QUEUE_NEXT_TRACK = 'QUEUE_NEXT_TRACK';
 export const QUEUE_PREVIOUS_TRACK = 'QUEUE_PREVIOUS_TRACK';
 export const RECEIVE_CURRENT_TRACK = 'RECEIVE_CURRENT_TRACK';
-export const SEEK = 'SEEK';
 export const START_LOADING_CURRENT_TRACK = 'START_LOADING_CURRENT_TRACK';
 
 export const play = () => ({
@@ -51,8 +51,8 @@ export const enqueuePlaylist = (playlistID, startIdx) => (dispatch, getState) =>
 
 export const playPreviousTrack = () => (dispatch, getState) => {
   let queue = getState().ui.player.queue;
-  dispatch(fetchCurrentTrack(queue[queue.length - 1]));
   dispatch(queuePreviousTrack());
+  dispatch(fetchCurrentTrack(queue[queue.length - 1]));
 };
 
 export const playNextTrack = () => (dispatch, getState) => {

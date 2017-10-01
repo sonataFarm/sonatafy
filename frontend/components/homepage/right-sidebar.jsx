@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RightSidebar = () => (
-  <div>Right Sidebar</div>
+  <div></div>
 );
 
 export default RightSidebar;

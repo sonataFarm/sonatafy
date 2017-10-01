@@ -19,7 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
       session: { currentUser },
       entities: {
         users: { ...{ [currentUser.id]: currentUser } },
-        ...{ playlists }
+        playlists
+      },
+      ui: {
+        loading: {
+          currentUserPlaylistsLoading: false,
+          playlistDetailLoading: true
+        }
       }
     }
   } else {

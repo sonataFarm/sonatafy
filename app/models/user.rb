@@ -8,12 +8,47 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Playlist
 
+  has_many :followings, # this user follows other user
+    class_name: :Follow,
+    foreign_key: :follower_id
+
+  has_many :follows,    # other user follows this user
+    class_name: :Follow,
+    foreign_key: :followed_user_id
+
+  has_many :followers,
+    through: :follows,
+    source: :follower
+
+  has_many :followed_users,
+    through: :followings,
+    source: :followed_user
+
+
   before_validation :ensure_session_token
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
 
     user && user.is_password?(password) ? user : nil
+  end
+
+  def follow(other_user)
+    @follow = Follow.new(
+      follower_id: id,
+      followed_user_id: other_user.id
+    )
+
+    @follow.save
+  end
+
+  def unfollow(other_user)
+    @follow = Follow.where(
+      follower_id: id,
+      followed_user_id: other_user.id
+     )
+
+     @follow.destroy
   end
 
   def self.generate_session_token
@@ -45,5 +80,9 @@ class User < ApplicationRecord
     playlists.map do |playlist|
       playlist.id
     end
+  end
+
+  def followed_user_ids
+    followed_users.map { |user| user.id }
   end
 end

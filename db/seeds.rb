@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-
 ActiveRecord::Base.transaction do
   Composer.destroy_all
   Performer.destroy_all
@@ -16,6 +15,10 @@ ActiveRecord::Base.transaction do
   Playlist.destroy_all
   Playlisting.destroy_all
   User.destroy_all
+end
+
+def playlists
+  'best trills'
 end
 
 def getRandomTempo
@@ -133,12 +136,11 @@ def seed_database
     'Herbert von Karajan'
   ];
 
-
   seed_composers(composers)
   seed_performers(performers)
   seed_albums(50)
   seed_credits(1, 5)
-  seed_users(10)
+  seed_users
   seed_playlists(10, 15)
   seed_playlistings(5, 20)
 end
@@ -218,15 +220,29 @@ end
 def seed_mozart
   username = 'wolfiemoz'
   password = 'sonata'
-  email = 'amadeus@aol.com'
+  email = 'sonatify+mozart@gmail.com'
   User.create(username: username, password: password, email: email)
 end
 
-def seed_users(n)
+def seed_users
+
+  emails = [
+    'sonatify+mahler@gmail.com',
+    'sonatify+haydn@gmail.com',
+    'sonatify+liszt@gmail.com',
+    'sonatify+rachmaninoff@gmail.com',
+    'sonatify+stravinsky@gmail.com',
+    'sonatify+bach@gmail.com',
+    'sonatify+handel@gmail.com',
+    'sonatify+beethoven@gmail.com',
+    'sonatify+wagner@gmail.com',
+    'sonatify+mozart@gmail.com',
+  ]
+
   seed_mozart
-  n.times do |i|
-    username = Faker::GameOfThrones.city.downcase
-    email = "#{username}@aol.com"
+  (emails.length - 1).times do |i|
+    username = Faker::GameOfThrones.city.downcase.split.join
+    email = emails[i]
     password = '123456'
     User.create(username: username, email: email, password: password)
   end

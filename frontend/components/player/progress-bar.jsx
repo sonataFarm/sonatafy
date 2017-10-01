@@ -17,9 +17,13 @@ class ProgressBar extends React.Component {
     this.props.seek(e);
   }
 
+  componentWillMount() {
+    this.props.howl
+  }
+
   componentWillReceiveProps(newProps) {
     if (newProps.howl) {
-      let duration = newProps.howl.duration();
+      const duration = newProps.howl.duration();
       let secondsElapsed;
 
       try { secondsElapsed = newProps.howl.seek(); }
@@ -40,7 +44,10 @@ class ProgressBar extends React.Component {
 
   progress() {
     const duration = this.props.howl.duration();
-    const secondsElapsed = this.props.howl.seek();
+    let secondsElapsed;
+
+    try { secondsElapsed = this.props.howl.seek(); }
+    catch (e) { secondsElapsed = 0; }
 
     let progressRatio = secondsElapsed / duration;
     progressRatio = isNaN(progressRatio) ? 0 : progressRatio;
