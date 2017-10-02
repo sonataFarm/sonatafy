@@ -21,6 +21,7 @@ export const formatTime = timeInSeconds => {
 }
 
 export const composerFormatShort = fullName => {
+  if (!fullName) return '';
   let names = fullName.split(' ');
   names = names.map((name, idx) => {
     if (idx === names.length - 1) {

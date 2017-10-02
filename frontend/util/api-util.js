@@ -4,4 +4,4 @@ import entities from './entity-api-utils';
 export default {
   session,
   entities
-}
+};

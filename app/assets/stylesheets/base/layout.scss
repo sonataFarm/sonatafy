@@ -30,6 +30,7 @@ body {
   height: 100%;
   background-color: #333;
 }
+
 body {
   text-align: center;
 }
@@ -60,4 +61,17 @@ html,body
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.btn {
+  @include font-strong;
+  &:focus {
+    outline: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  &:active {
+    border: 1px solid red;
+    outline: 0;
+  }
 }

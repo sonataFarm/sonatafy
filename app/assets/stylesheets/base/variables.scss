@@ -1,14 +1,18 @@
-$font-loud: 'Quintessential';
-@mixin font-thin {
-  font-family: 'Antic';
-  font-weight: 100;
-  font-size: 10px;
-}
-
+// $font-loud: 'Quintessential';
+// @mixin font-thin {
+//   font-family: 'Antic';
+//   font-weight: 100;
+//   font-size: 10px;
+// }
+//
 @mixin font-thin-md {
   font-family: 'Heebo';
   font-weight: 200;
   font-size: 12px;
+}
+
+@mixin font-plain {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
 }
 
 @mixin hover-icon {
@@ -19,9 +23,26 @@ $font-loud: 'Quintessential';
   }
 }
 
+@mixin font-loud {
+  font-family: 'Asul';
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
+@mixin font-strong {
+  font-family: 'Heebo';
+  font-weight: bold;
+}
+
+@mixin font-thin {
+  font-family: 'Heebo';
+  font-weight: 100;
+}
+
+$red: #AA0055;
+$medium-grey: #999;
 $dark-grey: #464866;
-$light-grey: #AAABB8;
+$light-grey: #DEDEDE;
 $sky-blue: #2E9CCA;
 $slate-blue: #29648A;
 $orange: #ffa942;

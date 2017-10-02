@@ -5,26 +5,29 @@ import { configureStore } from './store/store';
 import PlaylistsReducer from './reducers/entities/playlists-reducer';
 
 // !!!testing
-import { login } from './actions/session-actions';
-import { fetchSinglePlaylist } from './actions/playlist-actions';
-import { selectPlaylistTracks, selectUser, selectPlaylistDetails } from './selectors/selectors';
-import { fetchCurrentTrack } from './actions/track-actions';
+import { startLoadingSingleUser, receiveSingleUser, fetchSingleUser } from './actions/user-actions';
+import { createFollow, destroyFollow } from './actions/follow-actions';
+import APIUtil from './util/api-util';
 // !!!
 
 document.addEventListener('DOMContentLoaded', () => {
   let preloadedState;
   if (window.prefetchedData) {
-    const { currentUser, playlists } = window.prefetchedData;
+    const { currentUser, playlists, followedUsers } = window.prefetchedData;
     preloadedState = {
       session: { currentUser },
       entities: {
-        users: { ...{ [currentUser.id]: currentUser } },
+        users: {
+          ...followedUsers,
+          [currentUser.id]: currentUser
+         },
         playlists
       },
       ui: {
         loading: {
           currentUserPlaylistsLoading: false,
-          playlistDetailLoading: true
+          playlistDetailLoading: true,
+          userDetailLoading: true
         }
       }
     }
@@ -36,13 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // !!!testing
   window.store = store;
-  window.login = login;
-  window.PlaylistsReducer = PlaylistsReducer;
-  window.selectPlaylistTracks = selectPlaylistTracks;
-  window.selectUser = selectUser;
-  window.fetchSinglePlaylist = fetchSinglePlaylist;
-  window.selectPlaylistDetails = selectPlaylistDetails;
-  window.fetchCurrentTrack = fetchCurrentTrack;
+  window.startLoadingSingleUser = startLoadingSingleUser;
+  window.receiveSingleUser = receiveSingleUser;
+  window.fetchSingleUser = fetchSingleUser;
+  window.APIUtil = APIUtil;
+  window.createFollow = createFollow;
+  window.destroyFollow = destroyFollow;
   // !!!
 
   const root = document.getElementById('root');

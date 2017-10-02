@@ -30,7 +30,7 @@ class DropDownMenu extends React.Component {
     );
 
     const menuItems =
-      <li><button type="button" onClick={this.props.logout}>Log Out</button></li>;
+      <li><button type="button" onClick={this.props.logout} style={{cursor: 'pointer'}}>Log Out</button></li>;
 
       const options = {
         isOpen: this.state.open,

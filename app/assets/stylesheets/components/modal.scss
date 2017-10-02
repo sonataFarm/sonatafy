@@ -12,5 +12,5 @@
 }
 
 .modal-title {
-  font-family: $font-loud;
+  @include font-loud;
 }

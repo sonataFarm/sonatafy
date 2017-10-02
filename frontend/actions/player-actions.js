@@ -52,7 +52,7 @@ export const enqueuePlaylist = (playlistID, startIdx) => (dispatch, getState) =>
 export const playPreviousTrack = () => (dispatch, getState) => {
   let queue = getState().ui.player.queue;
   dispatch(queuePreviousTrack());
-  dispatch(fetchCurrentTrack(queue[queue.length - 1]));
+dispatch(fetchCurrentTrack(queue[queue.length - 1]));
 };
 
 export const playNextTrack = () => (dispatch, getState) => {

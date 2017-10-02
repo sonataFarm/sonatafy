@@ -15,6 +15,7 @@ ActiveRecord::Base.transaction do
   Playlist.destroy_all
   Playlisting.destroy_all
   User.destroy_all
+  Follow.destroy_all
 end
 
 def playlists
@@ -141,6 +142,7 @@ def seed_database
   seed_albums(50)
   seed_credits(1, 5)
   seed_users
+  seed_follows(4, 6)
   seed_playlists(10, 15)
   seed_playlistings(5, 20)
 end
@@ -245,6 +247,20 @@ def seed_users
     email = emails[i]
     password = '123456'
     User.create(username: username, email: email, password: password)
+  end
+end
+
+def seed_follows(min, max)
+  User.all.each do |user|
+    rand(min..max).times do
+      loop do
+        followed_user = User.random
+        follow = Follow.new(
+          follower_id: user.id,
+          followed_user_id: followed_user.id)
+        break if follow.save
+      end
+    end
   end
 end
 

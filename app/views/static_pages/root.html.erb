@@ -11,6 +11,11 @@
       playlists: current_user.playlists
     ).html_safe %>
 
+    prefetchedData.followedUsers = <%= render(
+      "api/users/users.json.jbuilder",
+      users: current_user.followed_users
+    ).html_safe %>
+
     window.prefetchedData = prefetchedData;
   </script>
 <% end %>

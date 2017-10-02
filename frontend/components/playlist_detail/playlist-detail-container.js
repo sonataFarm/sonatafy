@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchSinglePlaylist } from '../../actions/playlist-actions';
-import { selectPlaylistTracks, selectUser } from '../../selectors/selectors';
+import { selectPlaylistTracks, selectPlaylistDetails } from '../../selectors/selectors';
 import PlaylistDetail from './playlist-detail';
 
 const mapStateToProps = (state, { match }) => {

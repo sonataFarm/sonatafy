@@ -8,7 +8,7 @@ export const selectUserPlaylists = (state, userID) => {
   }
 
   return [];
-}
+};
 
 export const selectPlaylistDetails = (state, playlistID) => {
   const playlist = state.entities.playlists[playlistID];
@@ -26,7 +26,7 @@ export const selectPlaylistDetails = (state, playlistID) => {
       id: (author ? author.id : undefined)
     }
   };
-}
+};
 
 export const selectTrackDetails = (state, trackID) => {
   let { tracks, albums, composers } = state.entities;
@@ -58,3 +58,14 @@ export const selectPlaylistTracks = (state, playlistID) => {
 export const selectUser = (state, userID)  => (
   state.entities.users[userID]
 );
+
+export const selectFollowedUsers = state => {
+  let followedUsers = state.session.currentUser.followedUsers;
+
+  return followedUsers.map(userID => {
+    const followedUser = state.entities.users[userID];
+    const { id, username, email, playlists } = followedUser;
+
+    return { id, username, email, playlists };
+  });
+};

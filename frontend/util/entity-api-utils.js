@@ -1,7 +1,31 @@
+const createFollow = ({ followerID, followedUserID }) => (
+  $.ajax({
+    method: 'POST',
+    url: `/api/users/${followerID}/follows`,
+    data: {
+      follow: { followed_user_id: followedUserID }
+    }
+  })
+);
+
+const destroyFollow = ({ followerID, followedUserID }) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/users/${followerID}/follows/${followedUserID}`
+  })
+);
+
 const fetchSinglePlaylist = id => (
   $.ajax({
     method: 'GET',
     url: `/api/playlists/${id}`
+  })
+);
+
+const fetchSingleUser = id => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/users/${id}`
   })
 );
 
@@ -57,7 +81,10 @@ const fetchPerformer = id => (
 );
 
 export default {
+  createFollow,
+  destroyFollow,
   fetchSinglePlaylist,
+  fetchSingleUser,
   createPlaylist,
   updatePlaylist,
   destroyPlaylist,

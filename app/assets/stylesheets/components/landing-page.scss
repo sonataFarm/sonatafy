@@ -137,7 +137,7 @@
   }
 
   .masthead {
-    font-family: $font-loud;
+    @include font-loud;
     align-items: center;
   }
 
