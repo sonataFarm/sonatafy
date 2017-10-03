@@ -1,6 +1,7 @@
 import React from 'react';
 import AutoSuggest from 'react-autosuggest';
 import APIUtil from '../../util/api-util';
+import { composerFormatShort } from '../../util/format-utils';
 
 const languages = []
 class SearchBar extends React.Component {
@@ -16,7 +17,8 @@ class SearchBar extends React.Component {
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
     this.getSuggestionValue = this.getSuggestionValue.bind(this);
     this.renderSuggestion = this.renderSuggestion.bind(this);
-
+    this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
+    this.clearInput = this.clearInput.bind(this);
   }
 
   handleChange(e) {
@@ -27,8 +29,15 @@ class SearchBar extends React.Component {
   }
 
   onSuggestionsFetchRequested({ value }) {
+    APIUtil.search.searchTracks(value)
+    .then(
+      suggestions => this.setState({suggestions})
+    )
+  }
+
+  clearInput() {
     this.setState({
-      suggestions: APIUtil.search.searchTracks(value)
+      searchTerm: ''
     });
   }
 
@@ -39,11 +48,25 @@ class SearchBar extends React.Component {
   }
 
   getSuggestionValue(suggestion) {
-    return suggestion.name;
+    return suggestion.id;
   }
 
   renderSuggestion(suggestion) {
-    return <div>{suggestion.name}</div>;
+    return (
+      <div className="suggestion-content">
+        <i className="fa fa-play-circle fa-lg"></i>
+        <div className="composer">
+          {composerFormatShort(suggestion.display.composer)}</div>
+        <div className="title">{suggestion.display.title}</div>
+        <i className="fa fa-plus-circle fa-lg"></i>
+      </div>
+    );
+  }
+
+  onSuggestionSelected(e, { suggestion, suggestionValue: id }) {
+    this.props.playSingleTrack(id);
+    this.onSuggestionsClearRequested();
+    this.clearInput();
   }
 
   render() {
@@ -62,6 +85,7 @@ class SearchBar extends React.Component {
           onSuggestionsClearRequested={ this.onSuggestionsClearRequested }
           getSuggestionValue={ this.getSuggestionValue }
           renderSuggestion={ this.renderSuggestion }
+          onSuggestionSelected={ this.onSuggestionSelected }
           inputProps={inputProps}
         />
       </div>

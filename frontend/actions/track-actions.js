@@ -16,7 +16,6 @@ export const receiveCurrentTrack = track => ({
 export const fetchCurrentTrack = id => (dispatch, getState) => (
   APIUtil.entities.fetchCurrentTrack(id)
     .then(
-      // track => receiveCurrentTrack(track)
       track => dispatch(receiveCurrentTrack(track))
     )
 );

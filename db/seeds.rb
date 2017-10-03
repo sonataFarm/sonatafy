@@ -276,6 +276,7 @@ end
 def seed_playlistings(min, max)
   Playlist.all.each do |playlist|
     rand(min..max).times do |i|
+
       track = Track.random
       Playlisting.create(
         track_id: track.id,

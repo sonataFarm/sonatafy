@@ -8,6 +8,16 @@ const createFollow = ({ followerID, followedUserID }) => (
   })
 );
 
+const addTrackToPlaylist = (trackID, playlistID) => {
+  $.ajax({
+    method: 'PATCH',
+    url: `/api/playlists/${playlistID}`,
+    data: {
+      track: { track_id: trackID }
+    }
+  })
+}
+
 const destroyFollow = ({ followerID, followedUserID }) => (
   $.ajax({
     method: 'DELETE',
@@ -91,5 +101,6 @@ export default {
   fetchCurrentTrack,
   fetchAlbum,
   fetchComposer,
-  fetchPerformer
+  fetchPerformer,
+  addTrackToPlaylist
 }

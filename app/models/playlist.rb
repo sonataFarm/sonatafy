@@ -15,6 +15,14 @@ class Playlist < ApplicationRecord
     tracks.order('playlistings.ord').pluck(:id)
   end
 
+  def add_track(track)
+    Playlisting.create(
+      playlist_id: id,
+      track_id: track.id,
+      ord: tracks.length + 1
+    )
+  end
+
   def img_url
     albums.first ? albums.first.img_url : nil
   end

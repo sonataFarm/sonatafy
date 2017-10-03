@@ -43,6 +43,12 @@ export const fetchSinglePlaylist = id => dispatch => {
     )
 };
 
+export const addTrackToPlaylist = (trackID, playlistID) => {
+  return APIUtil.entities.addTrackToPlaylist(trackID, playlistID).then(
+    data => dispatch(receiveSinglePlaylist(data))
+  )
+};
+
 export const createPlaylist = playlist => (dispatch, getState) => (
   APIUtil.entities.createPlaylist({
     ...playlist,

@@ -8,6 +8,7 @@ export const QUEUE_NEXT_TRACK = 'QUEUE_NEXT_TRACK';
 export const QUEUE_PREVIOUS_TRACK = 'QUEUE_PREVIOUS_TRACK';
 export const RECEIVE_CURRENT_TRACK = 'RECEIVE_CURRENT_TRACK';
 export const START_LOADING_CURRENT_TRACK = 'START_LOADING_CURRENT_TRACK';
+export const ENQUEUE_SINGLE_TRACK = 'ENQUEUE_SINGLE_TRACK';
 
 export const play = () => ({
   type: PLAY
@@ -25,6 +26,11 @@ export const enqueueTracks = tracks => ({
   type: ENQUEUE_TRACKS,
   tracks
 });
+
+export const enqueueSingleTrack = trackID => ({
+  type: ENQUEUE_SINGLE_TRACK,
+  trackID
+})
 
 export const queueNextTrack = () => ({
   type: QUEUE_NEXT_TRACK
@@ -48,6 +54,11 @@ export const enqueuePlaylist = (playlistID, startIdx) => (dispatch, getState) =>
   dispatch(enqueueTracks(tracks));
   dispatch(fetchCurrentTrack(tracks[0]))
 };
+
+export const playSingleTrack = trackID => dispatch => {
+  dispatch(enqueueSingleTrack(trackID));
+  dispatch(fetchCurrentTrack(trackID));
+}
 
 export const playPreviousTrack = () => (dispatch, getState) => {
   let queue = getState().ui.player.queue;

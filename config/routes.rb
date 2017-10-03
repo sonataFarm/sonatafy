@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   get 'test', to: 'static_pages#test'
 
   namespace :api, defaults: { format: :json } do
+    get 'search', to: 'search#search'
     get 'users/current', to: 'users#current'
 
-    resources :playlists, only: [:show, :create, :destroy]
+    resources :playlists, only: [:show, :create, :destroy, :update]
     resources :users, only: [:create, :show] do
     resources :playlists, only: [:index]
       resources :follows, only: [:create, :destroy]

@@ -4,6 +4,6 @@ import search from './search-api-utils';
 
 export default {
   entities,
-  search
-  session,
+  search,
+  session
 };
