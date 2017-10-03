@@ -82,3 +82,15 @@
 .progress-bar-played {
   background-color: white;
 }
+
+.volume-control {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+
+  i {
+    margin-left: 10px;
+  }
+
+}

@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     get 'search', to: 'search#search'
     get 'users/current', to: 'users#current'
+    resources :playlistings, only: [:create]
+    delete 'playlistings', to: 'playlistings#destroy'
 
+    patch 'playlistings/swap', to: 'playlistings#swap'
     resources :playlists, only: [:show, :create, :destroy, :update]
     resources :users, only: [:create, :show] do
     resources :playlists, only: [:index]

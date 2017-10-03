@@ -11,6 +11,12 @@ class Player extends React.Component {
     this.loadTrack = this.loadTrack.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.volume !== this.props.volume) {
+      this.howl.volume(nextProps.volume);
+    }
+  }
+
   loadTrack(currentTrack) {
     this.props.startLoadingCurrentTrack();
     const trackID = currentTrack.id;
@@ -21,7 +27,8 @@ class Player extends React.Component {
       html5: true,
       preload: true,
       autoplay: true,
-      onload: this.props.play
+      onload: this.props.play,
+      volume
     });
   }
 

@@ -15,6 +15,13 @@ class Playlist < ApplicationRecord
     tracks.order('playlistings.ord').pluck(:id)
   end
 
+  def ensure_sequential_order!
+    playlistings.order(:ord).each_with_index do |playlisting, idx|
+      playlisting.update_attributes(ord: idx + 1)
+      playlisting.save
+    end
+  end
+
   def add_track(track)
     Playlisting.create(
       playlist_id: id,

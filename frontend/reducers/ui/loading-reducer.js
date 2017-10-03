@@ -1,4 +1,8 @@
 import {
+  TOGGLE_LOADING_THROTTLE,
+} from '../../actions/loading-actions';
+
+import {
   RECEIVE_SINGLE_PLAYLIST,
   START_LOADING_SINGLE_PLAYLIST,
   RECEIVE_PLAYLISTS
@@ -12,11 +16,14 @@ import {
 const initialState = {
   playlistDetailLoading: true,
   currentUserPlaylistsLoading: true,
-  userDetailLoading: true
+  userDetailLoading: true,
+  throttle: false
 };
 
 const LoadingReducer = (state = initialState, action) => {
   switch (action.type) {
+    case TOGGLE_LOADING_THROTTLE:
+      return Object.assign({}, state, { throttle: !state.throttle })
     case START_LOADING_SINGLE_PLAYLIST:
       return Object.assign({}, state, { playlistDetailLoading: true });
     case RECEIVE_SINGLE_PLAYLIST:

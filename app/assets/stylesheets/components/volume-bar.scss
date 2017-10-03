@@ -1,0 +1,80 @@
+.VolumeSlider {
+  width: 4px;
+  height: 70px;
+  margin: 10px 0;
+  position: relative;
+  background: #eee;
+  border-radius: 4px;
+
+  &-elapsed,
+  &-value {
+    background: $blue;
+    border-radius: 4px;
+  }
+
+  &-seek {
+    position: absolute;
+    cursor: pointer;
+  }
+
+  &-handle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 100%;
+    transform: scale(0.6);
+    transition: transform 0.2s;
+  }
+
+  &.isSeekable,
+  &.isEnabled {
+    &:hover, &:active {
+      .VolumeSlider-handle {
+        transform: scale(1.25);
+      }
+
+      .VolumeSlider-intent {
+        position: absolute;
+        background: rgba(0,0,0,0.05);
+      }
+    }
+
+    .VolumeSlider-value {
+      background: rgb(0, 91, 188);
+    }
+  }
+
+
+  &-value {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  &-seek {
+    left: -6px;
+    top: 0;
+    right: -6px;
+    bottom: 0;
+  }
+
+  &-handle {
+    left: 0;
+    margin: 0 0 -8px -4px;
+  }
+
+  &.isEnabled {
+    &:hover {
+      .VolumeSlider-handle {
+        transform: scale(1);
+      }
+
+      .VolumeSlider-intent {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+}

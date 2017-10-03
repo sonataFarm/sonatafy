@@ -6,7 +6,7 @@
     background: url(search-dark.png) no-repeat 5px 2px #444;
     border: 1px solid black;
     @include font-thin;
-    font-size: 13px;
+    font-size: 10px;
     color: #777;
     width: 150px;
     padding: 6px 15px 6px 23px;
@@ -80,9 +80,9 @@
   }
   i:last-of-type {
     margin-left: 5px;
-    color: $dark-grey;
+    color: $medium-green;
     &:hover {
-      color: $light-grey;
+      color: $dark-green;
     }
   }
 }

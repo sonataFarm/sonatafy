@@ -1,7 +1,7 @@
 import QueueReducer from './queue-reducer';
 import CurrentTrackReducer from './current-track-reducer';
 0
-import { PLAY, PAUSE, QUEUE_PREVIOUS_TRACK, ENQUEUE_TRACKS, QUEUE_NEXT_TRACK } from '../../actions/player-actions';
+import { PLAY, PAUSE, QUEUE_PREVIOUS_TRACK, ENQUEUE_TRACKS, QUEUE_NEXT_TRACK, SET_VOLUME } from '../../actions/player-actions';
 import { RECEIVE_CURRENT_TRACK } from '../../actions/track-actions';
 
 // state = {
@@ -15,7 +15,8 @@ import { RECEIVE_CURRENT_TRACK } from '../../actions/track-actions';
 
 const _default = {
   queue: [],
-  currentTrack: {}
+  currentTrack: {},
+  volume: 0.75
 }
 
 const PlayerReducer = (state = _default, action) => {
@@ -52,8 +53,15 @@ const PlayerReducer = (state = _default, action) => {
 
     case ENQUEUE_TRACKS:
       return {
+        ...state,
         queue: QueueReducer(undefined, action),
-        currentTrack: CurrentTrackReducer(undefined, action),
+        currentTrack: CurrentTrackReducer(undefined, action)
+      };
+    case SET_VOLUME:
+      const { volume } = action;
+      return {
+        ...state,
+        volume
       };
 
     default:

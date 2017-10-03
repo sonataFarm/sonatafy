@@ -20,13 +20,6 @@ class Api::PlaylistsController < ApplicationController
     end
   end
 
-  def update
-    @playlist = Playlist.find_by_id(params[:id])
-    @track = Track.find_by_id(track_params[:id])
-    @playlist.add_track(@track)
-    render 'api/playlists/show'
-  end
-
   def destroy
     @playlist = Playlist.find_by_id(params[:id])
     if @playlist

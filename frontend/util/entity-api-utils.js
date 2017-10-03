@@ -8,15 +8,31 @@ const createFollow = ({ followerID, followedUserID }) => (
   })
 );
 
-const addTrackToPlaylist = (trackID, playlistID) => {
+const addTrackToPlaylist = (playlistID, trackID) => (
   $.ajax({
-    method: 'PATCH',
-    url: `/api/playlists/${playlistID}`,
+    method: 'POST',
+    url: '/api/playlistings',
     data: {
-      track: { track_id: trackID }
+      playlisting: {
+        track_id: trackID,
+        playlist_id: playlistID
+      }
     }
   })
-}
+);
+
+const removeTrackFromPlaylist = (playlistID, ord) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/playlistings`,
+    data: {
+      playlisting: {
+        ord,
+        playlist_id: playlistID
+      }
+    }
+  })
+);
 
 const destroyFollow = ({ followerID, followedUserID }) => (
   $.ajax({
@@ -102,5 +118,6 @@ export default {
   fetchAlbum,
   fetchComposer,
   fetchPerformer,
-  addTrackToPlaylist
+  addTrackToPlaylist,
+  removeTrackFromPlaylist
 }

@@ -8,6 +8,7 @@ import PlaylistsReducer from './reducers/entities/playlists-reducer';
 import { startLoadingSingleUser, receiveSingleUser, fetchSingleUser } from './actions/user-actions';
 import { createFollow, destroyFollow } from './actions/follow-actions';
 import APIUtil from './util/api-util';
+import { addTrackToPlaylist, removeTrackFromPlaylist } from './actions/playlist-actions';
 // !!!
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -45,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.APIUtil = APIUtil;
   window.createFollow = createFollow;
   window.destroyFollow = destroyFollow;
+  window.addTrackToPlaylist = addTrackToPlaylist;
+  window.removeTrackFromPlaylist = removeTrackFromPlaylist;
   // !!!
 
   const root = document.getElementById('root');

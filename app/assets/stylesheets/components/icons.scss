@@ -1,0 +1,13 @@
+i.fa-minus-circle {
+  color: red;
+  &:hover {
+    color: $light-red;
+  }
+}
+
+i.fa-plus-circle {
+  color: $medium-green;
+  &:hover {
+    color: white;
+  }
+}

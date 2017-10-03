@@ -4,7 +4,8 @@ import Player from './player';
 
 const mapStateToProps = state => ({
   player: state.ui.player,
-  playing: state.ui.player.currentTrack.status === 'PLAYING'
+  playing: state.ui.player.currentTrack.status === 'PLAYING',
+  volume: state.ui.player.volume
 })
 
 const mapDispatchToProps = dispatch => ({

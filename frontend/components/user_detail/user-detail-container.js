@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   const { userID } = ownProps.match.params
 
   return {
-    loading: state.ui.loading.userDetailLoading,
+    loading: state.ui.loading.userDetailLoading || state.ui.loading.throttle,
     playlists: selectUserPlaylists(state, userID),
     user: state.entities.users[userID]
   };

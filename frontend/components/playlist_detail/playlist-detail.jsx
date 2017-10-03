@@ -24,7 +24,7 @@ class PlaylistDetail extends React.Component {
       return (
         <div className="playlist-detail">
           <PlaylistDetailHeader playlist={ this.props.playlist }/>
-          <TrackListContainer tracks={this.props.tracks} />
+          <TrackListContainer tracks={this.props.tracks} playlist={ this.props.playlist }/>
         </div>
       );
     }

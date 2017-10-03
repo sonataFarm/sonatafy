@@ -9,9 +9,15 @@ export const QUEUE_PREVIOUS_TRACK = 'QUEUE_PREVIOUS_TRACK';
 export const RECEIVE_CURRENT_TRACK = 'RECEIVE_CURRENT_TRACK';
 export const START_LOADING_CURRENT_TRACK = 'START_LOADING_CURRENT_TRACK';
 export const ENQUEUE_SINGLE_TRACK = 'ENQUEUE_SINGLE_TRACK';
+export const SET_VOLUME = 'SET_VOLUME';
 
 export const play = () => ({
   type: PLAY
+});
+
+export const setVolume = volume => ({
+  type: SET_VOLUME,
+  volume
 });
 
 export const startLoadingCurrentTrack = () => ({

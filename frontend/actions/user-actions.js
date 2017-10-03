@@ -1,5 +1,6 @@
 import APIUtil from '../util/api-util';
 import { receivePlaylists } from './playlist-actions';
+import { startLoadingThrottle } from './loading-actions';
 
 export const RECEIVE_FOLLOWED_USERS = 'RECEIVE_FOLLOWED_USERS';
 export const START_LOADING_SINGLE_USER = 'START_LOADING_SINGLE_USER';
@@ -21,6 +22,7 @@ export const receiveSingleUser = user => ({
 
 export const fetchSingleUser = id => dispatch => {
   dispatch(startLoadingSingleUser());
+  dispatch(startLoadingThrottle());
 
   return APIUtil.entities.fetchSingleUser(id)
     .then(data => {

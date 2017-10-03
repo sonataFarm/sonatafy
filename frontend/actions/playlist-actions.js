@@ -1,9 +1,10 @@
+import APIUtil from '../util/api-util';
 import { receiveAlbums } from './album-actions';
 import { receiveComposers } from './composer-actions';
 import { receivePerformers } from './performer-actions';
 import { receiveTracks } from './track-actions';
+import { startLoadingThrottle } from './loading-actions';
 
-import APIUtil from '../util/api-util';
 
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
 export const RECEIVE_SINGLE_PLAYLIST = 'RECEIVE_SINGLE_PLAYLIST';
@@ -37,17 +38,26 @@ export const startLoadingSinglePlaylist = () => ({
 
 export const fetchSinglePlaylist = id => dispatch => {
   dispatch(startLoadingSinglePlaylist());
+  dispatch(startLoadingThrottle());
   return APIUtil.entities.fetchSinglePlaylist(id)
     .then(
       data => dispatch(receiveSinglePlaylist(data))
     )
 };
 
-export const addTrackToPlaylist = (trackID, playlistID) => {
-  return APIUtil.entities.addTrackToPlaylist(trackID, playlistID).then(
-    data => dispatch(receiveSinglePlaylist(data))
-  )
+export const addTrackToPlaylist = (playlistID, trackID) => dispatch => {
+  return APIUtil.entities.addTrackToPlaylist(playlistID, trackID)
+    .then(
+      data => dispatch(receiveSinglePlaylist(data))
+    )
 };
+
+export const removeTrackFromPlaylist = (playlistID, ord) => dispatch => {
+  return APIUtil.entities.removeTrackFromPlaylist(playlistID, ord)
+    .then(
+      data => dispatch(receiveSinglePlaylist(data))
+    )
+}
 
 export const createPlaylist = playlist => (dispatch, getState) => (
   APIUtil.entities.createPlaylist({

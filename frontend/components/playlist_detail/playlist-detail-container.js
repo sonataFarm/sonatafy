@@ -11,7 +11,7 @@ const mapStateToProps = (state, { match }) => {
   return {
     playlist,
     tracks,
-    loading: state.ui.loading.playlistDetailLoading
+    loading: state.ui.loading.playlistDetailLoading || state.ui.loading.throttle
   };
 };
 

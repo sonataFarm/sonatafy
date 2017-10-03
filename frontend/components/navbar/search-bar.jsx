@@ -2,6 +2,7 @@ import React from 'react';
 import AutoSuggest from 'react-autosuggest';
 import APIUtil from '../../util/api-util';
 import { composerFormatShort } from '../../util/format-utils';
+import AddTrackDropdownContainer from '../add_track_dropdown/add-track-dropdown-container';
 
 const languages = []
 class SearchBar extends React.Component {
@@ -58,7 +59,7 @@ class SearchBar extends React.Component {
         <div className="composer">
           {composerFormatShort(suggestion.display.composer)}</div>
         <div className="title">{suggestion.display.title}</div>
-        <i className="fa fa-plus-circle fa-lg"></i>
+        <AddTrackDropdownContainer track={ { id: { suggestion } }} />
       </div>
     );
   }

@@ -4,7 +4,11 @@ import TrackListItem from './track-list-item';
 class TrackList extends React.Component {
 
   render() {
-    const { tracks, enqueuePlaylist, currentTrack } = this.props;
+    const {
+      tracks, enqueuePlaylist, currentTrack,
+      trackListBelongsToCurrentUser, removeTrackFromPlaylist
+    } = this.props;
+
     const trackListItems = tracks.map(
       (track, idx) =>
       <TrackListItem
@@ -13,6 +17,8 @@ class TrackList extends React.Component {
         key={idx}
         idx={idx}
         track={track}
+        trackIsMemberOfCurrentUsersPlaylist={trackListBelongsToCurrentUser}
+        removeTrackFromPlaylist={removeTrackFromPlaylist}
       />
     );
     return (
