@@ -7,7 +7,7 @@
   }
 
   .btn-follow, .btn-unfollow {
-    margin-top: 15px;
+    margin-bottom: 5px;
     width: 100px;
     height: 30px;
     text-align: center;
@@ -71,7 +71,7 @@
   position: fixed;
   bottom: 90px;
   left: 160px;
-  height: calc(100vh - 328px);
+  height: calc(100vh - 310px);
   width: 72%;
   @media (min-width: 768px) {
     width: 68.6666666667%;

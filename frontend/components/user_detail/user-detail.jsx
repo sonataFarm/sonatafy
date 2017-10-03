@@ -6,12 +6,12 @@ import LoadingIcon from '../shared/loading';
 
 class UserDetail extends React.Component {
   componentDidMount() {
-    this.props.fetchSingleUser();
+    this.props.fetchSingleUser(this.props.match.params.userID);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.userID !== this.props.match.params.userID) {
-      this.props.fetchSingleUser();
+      this.props.fetchSingleUser(nextProps.match.params.userID);
     }
   }
 
@@ -20,10 +20,6 @@ class UserDetail extends React.Component {
 
     if (loading) {
       return <LoadingIcon />
-    }
-
-    if (!user || !playlists) {
-      return null;
     }
 
     return (

@@ -14,12 +14,8 @@ const mapStateToProps = (state, ownProps) => {
   };
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  const {userID } = ownProps.match.params;
-
-  return {
-    fetchSingleUser: () => dispatch(fetchSingleUser(userID))
-  };
-}
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  fetchSingleUser: id => dispatch(fetchSingleUser(id))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserDetail);

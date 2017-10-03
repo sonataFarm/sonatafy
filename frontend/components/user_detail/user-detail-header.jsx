@@ -10,8 +10,8 @@ const UserDetailHeader = ({ user }) => (
     <div className="content-area info-box">
       <div className="user-detail-header category-header">User</div>
       <div className="user-detail-username">{ user.username }</div>
-      <div className="user-detail-playlist-info">{ user.playlists.length } playlists</div>
       <FollowButtonContainer user={ user } />
+      <div className="user-detail-playlist-info">{ user.playlists.length } playlists</div>
     </div>
   </div>
 );
