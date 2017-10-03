@@ -10,9 +10,4 @@ const PlayerRight = () => (
   </div>
 );
 
-{/* <VolumeSliderContainer
-  isEnabled={true}
-  volume={0.5}
-  onVolumeChange={ volume => console.log(volume) } /> */}
-
 export default PlayerRight;
