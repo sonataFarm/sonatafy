@@ -5,6 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require_relative './seeds/playlist-seed'
+require_relative './seeds/track-seed'
+require_relative './seeds/composer-seed'
+require_relative './seeds/performer-seed'
+require_relative './seeds/album-seed'
 
 require 'faker'
 ActiveRecord::Base.transaction do
@@ -18,127 +23,9 @@ ActiveRecord::Base.transaction do
   Follow.destroy_all
 end
 
-def playlists
-  'best trills'
-end
-
-def getRandomTempo
-  tempo_markings = %w[
-    Grave Largo Lento Adagio Andante Moderato Allegretto Allegro Animato
-    Agitato Vivace Presto Prestissimo
-  ]
-
-  tempo_modifications = %w[
-    ma\ non\ troppo grazioso appassionato espressivo con\ amore affettuoso
-    bruscamente con\ bravura con\ brio con\ fuoco dolce misterioso
-    sostenuto ma\ non\ troppo
-  ]
-
-  tempo = tempo_markings.sample
-  modified = (rand(0..1) > 0)
-  modified ? "#{tempo} #{tempo_modifications.sample}" : tempo
-end
-
-def generate_tracks(type)
-  case type
-  when :symphony
-    movements = rand(3..4)
-    base = "Symphony"
-    return trackFactory(movements, base)
-  when :concerto
-    movements = rand(3..4)
-    base = "#{Faker::Music.instrument.capitalize} Concerto"
-    return trackFactory(movements, base)
-  when :suite
-    movements = rand(3..10)
-    base = "Suite"
-    return trackFactory(movements, base)
-  when :sonata
-    movements = rand(3..4)
-    base = "#{Faker::Music.instrument.capitalize} Sonata"
-    return trackFactory(movements, base)
-  end
-end
-
-def album_title(type)
-  case type
-  when :symphony
-    "Symphonies"
-  when :concerto
-    "Concerti"
-  when :suite
-    "Suites"
-  when :sonata
-    "Sonatas"
-  end
-end
-
-def trackFactory(movements, base)
-  roman_numerals = {
-    1 => 'I',
-    2 => 'II',
-    3 => 'III',
-    4 => 'VI',
-    5 => 'V',
-    6 => 'VI',
-    7 => 'VII',
-    8 => 'VIII',
-    9 => 'IX',
-    10 => 'X'
-  }
-
-  number = rand(10)
-  base = "#{base} No. #{number}"
-  tracks = []
-
-  movements.times do |i|
-    movement = roman_numerals[i + 1]
-    tempo = getRandomTempo
-    track = "#{base}: #{movement}. #{tempo}"
-    tracks << track
-  end
-
-  tracks
-end
-
 def seed_database
-  composers = [
-    'Ludwig van Beethoven',
-    'Franz Joseph Haydn',
-    'Wolfgang Amadeus Mozart',
-    'Gustav Mahler',
-    'Johannes Brahms',
-    'Maurice Ravel',
-    'Claude Debussy',
-    'Dmitri Shostakovich',
-    'Igor Stravinsky',
-    'Sergei Rachmaninoff',
-    'Leonard Bernstein'
-  ];
-
-  performers = [
-    'Vladimir Horowitz',
-    'Martha Argerich',
-    'Yo-Yo Ma',
-    'Gustavo Dudamel',
-    'Wilhelm Furtwangler',
-    'Maria Callas',
-    'The BBC Symphony Orchestra',
-    'The New York Philharmonic',
-    'James Levine',
-    'Evgeny Kissin',
-    'Arturo Toscanini',
-    'Luciano Pavoratti',
-    'Daniel Barenboim',
-    'Jaqueline Dupre',
-    'Alfred Brendel',
-    'Yuja Wang',
-    'Carl Richter',
-    'Herbert von Karajan'
-  ];
-
-  seed_composers(composers)
-  seed_performers(performers)
+  seed_composers
+  seed_performers
   seed_albums(50)
   seed_credits(1, 5)
   seed_users
@@ -147,55 +34,46 @@ def seed_database
   seed_playlistings(5, 20)
 end
 
-def seed_composers(composers)
-  composers.each do |composer|
+def seed_composers
+  ComposerSeed::composers.each do |composer|
     Composer.create(name: composer)
   end
 end
 
-def seed_performers(performers)
-  performers.each do |performer|
+def seed_performers
+  PerformerSeed::performers.each do |performer|
     Performer.create(name: performer)
   end
 end
 
 def seed_albums(n)
-  album_covers = [
-    "https://image.ibb.co/gOXU15/1.jpg",
-    "https://image.ibb.co/fVJ2M5/2.jpg",
-    "https://image.ibb.co/fc4bg5/3.jpg",
-    "https://image.ibb.co/iUKnok/4.jpg",
-    "https://image.ibb.co/hh4bg5/5.jpg",
-    "https://image.ibb.co/jYa4ZQ/6.jpg",
-    "https://image.ibb.co/dcgNM5/7.jpg",
-    "https://image.ibb.co/kpZbg5/8.jpg"
-  ]
-
   n.times do
-    album_type = [:sonata, :suite, :concerto, :symphony].sample
+    seed = AlbumSeed.new
 
-    composer = Composer.random
-    composer_name = composer.name.split[-1]
-    instrument = Faker::Music.instrument
-    title = "#{composer_name} #{instrument} #{album_title(album_type)}"
-    img_url = album_covers.sample
-    # img_url = Faker::Placeholdit.image('150x150', 'jpg')
-    album = Album.create(title: title, img_url: img_url, composer_id: composer.id)
+    album = Album.create(title: seed.title, img_path: seed.img_path, composer_id: seed.composer_id)
 
-    pieces = rand(1..4)
     tracks = []
-    pieces.times do
-      movements = generate_tracks(album_type)
-      tracks += movements
+
+    if [:sonata, :string_quartet, :concerto, :symphony].include?(seed.genre)
+      rand(2..4).times do
+        tracks += TrackSeed::movements(seed.genre)
+      end
+    elsif seed.genre === :song
+      rand(10..14).times do
+        tracks << TrackSeed::random_song
+      end
+    else
+      rand(10..14).times do
+        tracks << TrackSeed::random_piece_with_key
+      end
     end
 
     tracks.each_with_index do |title, idx|
-      audio = "audio#{rand(1..39)}.mp3"
       Track.create(
         title: title,
         album_id: album.id,
         ord: idx + 1,
-        audio: audio
+        audio: TrackSeed::random_audio_url
       )
     end
   end
@@ -219,34 +97,56 @@ def seed_credits(min, max)
   end
 end
 
-def seed_mozart
-  username = 'wolfiemoz'
-  password = 'sonata'
-  email = 'sonatify+mozart@gmail.com'
-  User.create(username: username, password: password, email: email)
-end
-
 def seed_users
-
-  emails = [
-    'sonatify+mahler@gmail.com',
-    'sonatify+haydn@gmail.com',
-    'sonatify+liszt@gmail.com',
-    'sonatify+rachmaninoff@gmail.com',
-    'sonatify+stravinsky@gmail.com',
-    'sonatify+bach@gmail.com',
-    'sonatify+handel@gmail.com',
-    'sonatify+beethoven@gmail.com',
-    'sonatify+wagner@gmail.com',
-    'sonatify+mozart@gmail.com',
+  users = [
+    {
+      username: 'DasLied',
+      email:    'sonatify+mahler@gmail.com'
+    },
+    {
+      username: 'rawqSTR',
+      email:    'sonatify+liszt@gmail.com'
+    },
+    {
+      username: 'hidin',
+      email:    'sonatify+haydn@gmail.com'
+    },
+    {
+      username: 'handZ',
+      email:    'sonatify+rachmaninoff@gmail.com'
+    },
+    {
+      username: 'allrite',
+      email:    'sonatify+stravinsky@gmail.com'
+    },
+    {
+      username: 'jOh4nNsEbA5TiAn',
+      email:    'sonatify+bach@gmail.com'
+    },
+    {
+      username: 'canUHandelIt',
+      email:    'sonatify+handel@gmail.com'
+    },
+    {
+      username: 'roadTo9',
+      email:    'sonatify+beethoven@gmail.com'
+    },
+    {
+      username: 'I_AM_RICHARD_WAGNER',
+      email:    'sonatify+wagner@gmail.com'
+    },
+    {
+      username: 'wolfiemoz',
+      email:    'sonatify+mozart@gmail.com'
+    },
   ]
 
-  seed_mozart
-  (emails.length - 1).times do |i|
-    username = Faker::GameOfThrones.city.downcase.split.join
-    email = emails[i]
-    password = '123456'
-    User.create(username: username, email: email, password: password)
+  users.each do |user|
+    User.create(
+      username: user[:username],
+      email: user[:email],
+      password: 'sonata'
+    )
   end
 end
 
@@ -267,7 +167,7 @@ end
 def seed_playlists(min, max)
   User.all.each do |user|
     rand(min..max).times do
-      title = Faker::VentureBros.organization
+      title = PlaylistSeed::title
       Playlist.create(title: title, author_id: user.id)
     end
   end

@@ -30,7 +30,11 @@ class Playlist < ApplicationRecord
     )
   end
 
+  def img_path
+    albums.first ? albums.first.img_path : nil
+  end
+
   def img_url
-    albums.first ? albums.first.img_url : nil
+    get_AWS_presigned_url(img_path)
   end
 end

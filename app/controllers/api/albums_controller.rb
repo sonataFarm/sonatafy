@@ -4,7 +4,7 @@ class Api::AlbumsController < ApplicationController
   end
 
   def ordered_tracks
-    
+
   end
 
   def track_ids

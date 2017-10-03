@@ -7,9 +7,15 @@ class Track < ApplicationRecord
   has_one :composer, through: :album
   has_many :performers, through: :album
 
-  attr_accessor :url
-  # TODO why didn't this work?
+  def img_path
+    album.img_path
+  end
+
   def img_url
-    album.img_url
+    get_AWS_presigned_url(img_path)
+  end
+
+  def audio_url
+    get_AWS_presigned_url(audio)
   end
 end

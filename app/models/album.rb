@@ -1,5 +1,5 @@
 class Album < ApplicationRecord
-  validates :title, :img_url, :composer_id, presence: true
+  validates :title, :img_path, :composer_id, presence: true
 
   has_many :tracks
   belongs_to :composer
@@ -12,5 +12,9 @@ class Album < ApplicationRecord
 
   def ordered_performer_ids
     performers.order('credits.ord').pluck(:id)
+  end
+
+  def img_url
+    get_AWS_presigned_url(img_path)
   end
 end
