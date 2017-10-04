@@ -68,6 +68,10 @@ class TrackSeed
     "#{pieces.sample} in #{Faker::Music.key} #{%w[major minor].sample}"
   end
 
+  def self.random_duration_in_seconds
+    rand(180..800)
+  end
+
   def self.movements(genre = nil)
     genre ||= [:symphony, :concerto, :sonata, :string_quartet].sample
 

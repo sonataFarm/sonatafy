@@ -54,7 +54,7 @@ class TrackListItem extends React.Component {
         )}
         <td><span>{track.title}</span>{'  '}<span>{composer}</span></td>
         <td className="hoverable">
-          <span>{formatTime(_.random(180, 800))}</span>
+          <span>{formatTime(track.duration)}</span>
           { this.props.trackIsMemberOfCurrentUsersPlaylist ? (
             <i
               className="hidden fa fa-minus-circle fa-lg"

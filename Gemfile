@@ -39,6 +39,7 @@ gem 'sprockets-rails', require: 'sprockets/railtie'
 gem 'paperclip'
 gem 'figaro'
 gem 'aws-sdk', '~> 2.3'
+gem 'ruby-mp3info', require: 'mp3info'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

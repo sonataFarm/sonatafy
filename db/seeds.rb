@@ -73,6 +73,7 @@ def seed_albums(n)
         title: title,
         album_id: album.id,
         ord: idx + 1,
+        duration: TrackSeed::random_duration_in_seconds,
         audio: TrackSeed::random_audio_url
       )
     end
