@@ -5,12 +5,13 @@ import { fetchSingleUser, createFollow, destroyFollow } from '../../actions/user
 
 
 const mapStateToProps = (state, ownProps) => {
-  const { userID } = ownProps.match.params
+  const userID = ownProps.match.params.userID || state.session.currentUser.id;
 
   return {
     loading: state.ui.loading.userDetailLoading || state.ui.loading.throttle,
     playlists: selectUserPlaylists(state, userID),
-    user: state.entities.users[userID]
+    user: state.entities.users[userID],
+    currentUser: state.session.currentUser
   };
 }
 

@@ -10,6 +10,7 @@ const MainContent = () => (
     <Switch>
       <Route path="/users/:userID" component={UserDetailContainer} />
       <Route path="/playlists/:playlistID" component={PlaylistDetailContainer} />
+      <Route exact path="/" component={UserDetailContainer} />
     </Switch>
   </div>
 );

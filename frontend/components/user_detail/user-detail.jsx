@@ -6,17 +6,19 @@ import LoadingIcon from '../shared/loading';
 
 class UserDetail extends React.Component {
   componentDidMount() {
-    this.props.fetchSingleUser(this.props.match.params.userID);
+    const userID = this.props.match.params.userID || this.props.currentUser.id;
+    this.props.fetchSingleUser(userID);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.userID !== this.props.match.params.userID) {
-      this.props.fetchSingleUser(nextProps.match.params.userID);
+      const userID = nextProps.match.params.userID || this.props.currentUser.id;
+      this.props.fetchSingleUser(userID);
     }
   }
 
   render() {
-    const { loading, user, playlists } = this.props;
+    const { loading, user, playlists, currentUser } = this.props;
 
     if (loading) {
       return <LoadingIcon />
@@ -24,8 +26,8 @@ class UserDetail extends React.Component {
 
     return (
       <div className="user-detail-container scroll scroll-bar">
-        <UserDetailHeader user={ user } />
-        <PlaylistList playlists={playlists} />
+        <UserDetailHeader user={ user } isCurrentUser={ user.id === currentUser.id } />
+        <PlaylistList playlists={ playlists } />
       </div>
     );
   }
