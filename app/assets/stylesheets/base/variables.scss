@@ -22,7 +22,10 @@
     transition: ease-in 200ms;
   }
 }
-
+@mixin asul-light {
+  font-family: 'Asul';
+  font-weight: 100;
+}
 @mixin font-loud {
   font-family: 'Asul';
   font-weight: bold;
@@ -42,14 +45,15 @@
 $red: #AA0055;
 $medium-grey: #999;
 $dark-grey: #464866;
-$light-grey: #DEDEDE;
+$light-grey: #cacaca;
 $sky-blue: #2E9CCA;
 $slate-blue: #29648A;
-$orange: #ffa942;
 $orange: #ffd800;
 $medium-green: #20de00;
 $dark-green: #106f00;
 $light-red: #ff8a8a;
 $blue: #007bff;
-$dark-blue: #0055b1;
+$medium-blue: #0055b1;
+$dark-blue: #030080;
 $transparent-black: rgba(0, 0, 0, 0.6);
+$white: white;

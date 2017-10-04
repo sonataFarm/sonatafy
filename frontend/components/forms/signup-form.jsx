@@ -37,7 +37,7 @@ const SignupForm = props => {
         />
       </div>
       <button
-        className="btn btn-primary btn-form"
+        className="btn btn-default"
         disabled={ pristine }
       >
         Register Now

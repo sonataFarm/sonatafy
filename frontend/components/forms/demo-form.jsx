@@ -85,7 +85,7 @@ class DemoForm extends React.Component {
           />
         </div>
         <button
-          className="btn btn-primary btn-form"
+          className="btn btn-default"
           onClick={this.handleClick.bind(this)}
         >
           Sign In

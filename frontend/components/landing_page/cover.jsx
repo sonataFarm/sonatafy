@@ -8,7 +8,7 @@ const Cover = ({ handleClick }) => (
   <div className="inner cover">
     <h1 className="cover-heading">Discover great music.</h1>
     <p className="lead">
-      Discover an old masterpiece. Make a new playlist. Share with the world.
+      Discover an old masterpiece. Make a new playlist. <span className="splash" >Share with the world.</span>
     </p>
     <p className="lead">
       {/* <Link

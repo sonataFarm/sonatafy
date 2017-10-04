@@ -38,6 +38,7 @@
   .masthead-brand {
     margin-top: 10px;
     margin-bottom: 10px;
+    color: $white;
   }
 
   .masthead-nav > li {
@@ -51,8 +52,7 @@
     padding-left: 0;
     font-size: 16px;
     font-weight: bold;
-    color: #fff; /* IE8 proofing */
-    color: lightgray;
+    color: $light-grey;
     border-bottom: 2px solid transparent;
     &:hover {
       color: white;
@@ -87,9 +87,13 @@
   .cover {
     padding: 0 20px;
   }
-  .cover .btn-lg {
-    padding: 10px 20px;
-    font-weight: bold;
+  // .cover .btn-lg {
+  //   padding: 10px 20px;
+  //   font-weight: bold;
+  // }
+
+  .splash {
+    color: $orange;
   }
 
   /*
@@ -139,16 +143,6 @@
   .masthead {
     @include font-loud;
     align-items: center;
-  }
-
-  .btn {
-    font-family: "Quintessential";
-    background-color: white;
-    color: black;
-    &:hover {
-      background-color: black;
-      color: white;
-    }
   }
 
   .masthead, .cover {

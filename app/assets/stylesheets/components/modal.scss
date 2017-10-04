@@ -14,3 +14,17 @@
 .modal-title {
   @include font-loud;
 }
+
+.modal-header {
+  background: $dark-blue;
+  color: white;
+  border: 1px solid white;
+}
+
+.modal-header .close span {
+  color: white;
+}
+
+.modal label {
+  font-size: 12px;
+}

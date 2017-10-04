@@ -18,7 +18,7 @@ const PlaylistCreateForm = props => {
       </div>
       <button
         type="submit"
-        className="btn btn-primary btn-form"
+        className="btn btn-default"
         disabled={ pristine }
       >
         Create Playlist
