@@ -13,7 +13,7 @@ class PlaylistSeed
   end
 
   def self.music_categories
-    %w[Symphonies Concerti Pieces Works Masterpieces Songs Music]
+    %w[Symphonies Concerti Pieces Works Masterpieces Songs]
   end
 
   def self.prepositional_phrases
@@ -31,11 +31,11 @@ class PlaylistSeed
   end
 
   def self.music_adjectives
-      %w[Weird Awkward Superhilarious Totally\ Unplayable Disproportionately\ Famous Quietest]
+      %w[Weird Awkward Superhilarious Totally\ Unplayable Disproportionately\ Famous Silent]
   end
 
   def self.musician_adjectives
-    %w[Neurotic Tone-Deaf Angry Rude Thrifty Impoverished Whiny Unnotable Awkward Superhilarious Disproportionately\ Famous Quietest]
+    %w[Neurotic Tone-Deaf Angry Rude Thrifty Morally\ Impoverished Whiny Unnotable Awkward  Disproportionately\ Famous Quietest]
   end
 
   def self.nationalities
@@ -47,7 +47,7 @@ class PlaylistSeed
   end
 
   def self.performer_participles
-    %w[Screeching Singing Playing Attempting Riffing\ On Trilling Messing\ Up]
+    %w[Screeching Singing Playing Attempting Riffing\ On Messing\ Up]
   end
 
   def self.musicians
