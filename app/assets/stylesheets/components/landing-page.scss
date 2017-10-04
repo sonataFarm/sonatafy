@@ -3,7 +3,7 @@
 .landing {
   width: 100vw;
   height: 100vh;
-  background: url(landing-background.jpg) no-repeat center;
+  background: asset-url("landing-background.jpg") no-repeat center;
   color: white;
 
   /* Extra markup and styles for table-esque vertical and horizontal centering */
