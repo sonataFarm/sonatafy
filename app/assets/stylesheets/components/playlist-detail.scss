@@ -24,15 +24,26 @@
 
 .playlist-detail .category-header {
   font-size: 12px;
+  @include font-plain;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .playlist-detail-title {
   font-size: 1.75rem;
   text-align: left;
+  @include font-plain;
+  font-weight: 100;
+  width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .playlist-detail-user {
   font-size: 0.75rem;
+  font-family: 'Heebo';
+  font-weight: 200;
+
 }
 
 .track-list-container {

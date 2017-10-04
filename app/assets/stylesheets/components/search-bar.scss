@@ -78,13 +78,13 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  i:last-of-type {
-    margin-left: 5px;
-    color: $medium-green;
-    &:hover {
-      color: $dark-green;
-    }
-  }
+  // i:last-of-type {
+  //   margin-left: 5px;
+  //   color: $medium-green;
+  //   &:hover {
+  //     color: $dark-green;
+  //   }
+  // }
 }
 
 .react-autosuggest__suggestion {
@@ -94,7 +94,17 @@
 }
 
 .react-autosuggest__suggestion--highlighted {
-  i {
+  i.fa-play-circle {
     color: $blue;
+    &:hover {
+      color: $dark-blue;
+    }
   }
+  i.fa-plus-circle {
+    color: $green;
+    &:hover {
+      color: $dark-green;
+    }
+  }
+
 }

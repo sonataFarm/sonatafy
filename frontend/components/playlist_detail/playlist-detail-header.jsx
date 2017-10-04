@@ -11,7 +11,7 @@ const PlaylistDetailHeader = ({ playlist }) => (
     <div className="content-area info-box">
       <span className="playlist-detail-header category-header">Playlist</span>
       <div className="playlist-detail-title">{ playlist.title }</div>
-      <div className="playlist-detail-user category-header">
+      <div className="playlist-detail-user">
         Created by: <Link
           to={`/users/${playlist.author.id}`}
         >

@@ -43,6 +43,12 @@
   font-weight: 400;
 }
 
+@mixin font-plain-bold-upcase {
+  @include font-plain;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 @mixin heebo-bold {
   font-family: 'Heebo';
   font-weight: bold;
@@ -78,6 +84,7 @@ $sky-blue: #2E9CCA;
 $slate-blue: #29648A;
 $transparent-white: rgba(255, 255, 255, 0.64);
 
+$light-orange: #ffd6c2;
 $orange: #ffa900;
 $medium-green: #20de00;
 $dark-green: #106f00;

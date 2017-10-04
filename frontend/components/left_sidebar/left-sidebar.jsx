@@ -6,6 +6,7 @@ import PlaylistCreateButton from './playlist-create-button';
 const LeftSidebar = () => (
   <div className="left-sidebar-inner-container">
     <div className="scrollbar scroll-wrapper">
+      <h1>Sonatify</h1>
       <MenuList />
       <PlaylistListContainer />
     </div>

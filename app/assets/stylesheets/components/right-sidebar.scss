@@ -37,7 +37,6 @@
     a:first-of-type {
       @include font-thin;
       font-size: 12px;
-      text-decoration: underline;
       &:hover {
         text-decoration: none;
       }
@@ -46,8 +45,6 @@
       font-size: 9px;
     }
   }
-
-
 }
 
 .followed-users-list-item-container {
@@ -63,7 +60,9 @@
 }
 
 .right-sidebar-container h3 {
-  color: $orange;
-  @include asul-light;
+  color: $light-orange;
+  font-family: 'Heebo';
+  font-weight: 200;
+  text-transform: uppercase;
   font-size: 20px;
 }

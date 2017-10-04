@@ -288,7 +288,7 @@
 }
 /* line 34, ../src/scss/_dd-menu.scss */
 .dd-menu .dd-menu-items ul.dd-items-right li > *, .dd-menu .dd-menu-items ol.dd-items-right li > * {
-  text-align: right;
+  text-align: center;
 }
 /* line 38, ../src/scss/_dd-menu.scss */
 .dd-menu .dd-menu-items ul.dd-items-left li > *, .dd-menu .dd-menu-items ol.dd-items-left li > * {
@@ -362,4 +362,14 @@
   top: 0;
 }
 
+.dd-menu-items .title {
+  color: $orange;
+  font-weight: 100;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.dd-menu-items button {
+  text-align: center;
+}
 /*# sourceMappingURL=react-dd-menu.css.map */

@@ -28,6 +28,7 @@
     div {
       &:first-of-type {
         @include font-thin;
+        font-size: 11px;
       }
       &:last-of-type {
         font-size: 8px;
@@ -52,7 +53,9 @@
 }
 
 .timestamps-container {
-  @include font-thin;
+  font-family: 'Heebo';
+  font-weight: 200;
+  font-size: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -64,6 +67,13 @@
     cursor: pointer;
     @include hover-icon;
     margin: 0 10px 5px 10px;
+  }
+
+  i:nth-of-type(2) {
+    color: $light-grey;
+    &:hover {
+      color: white;
+    }
   }
 }
 

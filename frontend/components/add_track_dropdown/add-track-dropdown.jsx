@@ -55,7 +55,7 @@ class AddTrackDropdown extends React.Component {
     return (
       <div className="add-track-dropdown-container">
         <DropdownMenu { ...options }>
-          <li>Add Track To Playlist</li>
+          <li className="title">Select Playlist</li>
           {playlistItems}
         </DropdownMenu>
       </div>
