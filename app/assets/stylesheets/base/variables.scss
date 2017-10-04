@@ -32,6 +32,22 @@
   text-transform: uppercase;
 }
 
+@mixin chivo-light-upcase {
+  font-family: 'Chivo';
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+@mixin heebo-normal {
+  font-family: 'Heebo';
+  font-weight: 400;
+}
+
+@mixin heebo-bold {
+  font-family: 'Heebo';
+  font-weight: bold;
+}
+
 @mixin font-strong {
   font-family: 'Heebo';
   font-weight: bold;
@@ -42,13 +58,27 @@
   font-weight: 100;
 }
 
+@mixin drop-shadow-strong {
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+@mixin drop-shadow-weak {
+  -webkit-box-shadow: 6px 10px 25px -4px rgba(0,0,0,0.38);
+  -moz-box-shadow: 6px 10px 25px -4px rgba(0,0,0,0.38);
+  box-shadow: 6px 10px 25px -4px rgba(0,0,0,0.38);
+}
+
 $red: #AA0055;
 $medium-grey: #999;
 $dark-grey: #464866;
 $light-grey: #cacaca;
 $sky-blue: #2E9CCA;
 $slate-blue: #29648A;
-$orange: #ffd800;
+$transparent-white: rgba(255, 255, 255, 0.64);
+
+$orange: #ffa900;
 $medium-green: #20de00;
 $dark-green: #106f00;
 $light-red: #ff8a8a;

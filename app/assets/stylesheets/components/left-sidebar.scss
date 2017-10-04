@@ -36,7 +36,10 @@
   background: $transparent-black;
 
   .category-header {
-    padding-left: 7px;
+    text-align: center;
+    @include asul-light;
+    font-size: 15px;
+    color: $orange;
   }
 }
 

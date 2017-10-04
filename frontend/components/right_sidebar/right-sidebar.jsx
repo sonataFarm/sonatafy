@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const RightSidebar = ({ followedUsers }) => (
   <div>
-    <h3>Followed Users</h3>
+    <h3>Friends</h3>
     <FollowedUsersList followedUsers={followedUsers} />
     <Link to="/users"> <button className="btn btn-primary">Find Friends</button></Link>
   </div>
