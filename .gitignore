@@ -24,7 +24,7 @@ bundle.js.map
 .DS_Store
 npm-debug.log
 /production
-assets/
+.assets
 
 # Ignore application configuration
 /config/application.yml
