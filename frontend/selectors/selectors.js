@@ -1,3 +1,25 @@
+export const selectUsersIndexItems = state => {
+  // usersIndex is [[userID, [userPlaylistIDs...]],...]
+  // return [{user: ..., playlists: [...]}, ...]
+
+  const { items } = state.ui.usersIndex;
+
+  return items.map(item => {
+    const userID = item[0];
+    const user = state.entities.users[userID];
+
+    const playlistIDs = item[1];
+    const playlists = playlistIDs.map(
+      id => state.entities.playlists[id]
+    );
+
+    return {
+      user,
+      playlists
+    };
+  })
+}
+
 export const selectUserPlaylists = (state, userID) => {
   const user = state.entities.users[userID];
 

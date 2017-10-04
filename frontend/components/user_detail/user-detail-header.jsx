@@ -5,7 +5,7 @@ import FollowButtonContainer from '../shared/follow-button-container';
 const UserDetailHeader = ({ user, isCurrentUser }) => (
   <div className="row row-margin user-detail-header-container">
     <div className="content-area">
-      <Avatar email={ user.email } size={150}/>
+      <Avatar email={ user.email } size={150} />
     </div>
     <div className="content-area info-box">
       <div className="user-detail-header category-header">

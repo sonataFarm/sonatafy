@@ -21,6 +21,13 @@ const addTrackToPlaylist = (playlistID, trackID) => (
   })
 );
 
+const fetchUsersIndexItems = offset => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/users?offset=${offset}`
+  })
+)
+
 const removeTrackFromPlaylist = (playlistID, ord) => (
   $.ajax({
     method: 'DELETE',
@@ -119,5 +126,6 @@ export default {
   fetchComposer,
   fetchPerformer,
   addTrackToPlaylist,
-  removeTrackFromPlaylist
+  removeTrackFromPlaylist,
+  fetchUsersIndexItems
 }

@@ -1,4 +1,9 @@
 class Api::UsersController < ApplicationController
+  def index
+    offset = params[:offset] || 0
+    @users = User.all.order('created_at DESC').limit(4).offset(offset).includes(:playlists)
+  end
+
   def create
     @user = User.new(user_params)
 

@@ -10,18 +10,25 @@ import {
 
 import {
   START_LOADING_SINGLE_USER,
-  RECEIVE_SINGLE_USER
+  RECEIVE_SINGLE_USER,
+  START_LOADING_USERS_INDEX_ITEMS,
+  RECEIVE_USERS_INDEX_ITEMS
 } from '../../actions/user-actions';
 
 const initialState = {
   playlistDetailLoading: true,
   currentUserPlaylistsLoading: true,
   userDetailLoading: true,
-  throttle: false
+  throttle: true,
+  usersIndexLoading: true
 };
 
 const LoadingReducer = (state = initialState, action) => {
   switch (action.type) {
+    case START_LOADING_USERS_INDEX_ITEMS:
+      return Object.assign({}, state, { usersIndexLoading: true });
+    case RECEIVE_USERS_INDEX_ITEMS:
+      return Object.assign({}, state, { usersIndexLoading: false });
     case TOGGLE_LOADING_THROTTLE:
       return Object.assign({}, state, { throttle: !state.throttle })
     case START_LOADING_SINGLE_PLAYLIST:

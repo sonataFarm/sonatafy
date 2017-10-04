@@ -1,9 +1,16 @@
 import { RECEIVE_CURRENT_USER, REMOVE_CURRENT_USER } from '../../actions/session-actions';
 import { RECEIVE_NEW_PLAYLIST } from '../../actions/playlist-actions';
-import { RECEIVE_FOLLOWED_USERS, RECEIVE_SINGLE_USER } from '../../actions/user-actions';
+import { RECEIVE_FOLLOWED_USERS, RECEIVE_SINGLE_USER, RECEIVE_USERS_INDEX_ITEMS } from '../../actions/user-actions';
 
 const UsersReducer = (state = {}, action) => {
   switch (action.type) {
+
+    case RECEIVE_USERS_INDEX_ITEMS:
+      const { users } = action.payload;
+      return {
+        ...state,
+        ...users
+      }
 
     case RECEIVE_CURRENT_USER:
       const { currentUser } = action;

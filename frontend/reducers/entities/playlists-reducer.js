@@ -11,8 +11,17 @@ import {
    REMOVE_CURRENT_USER
  } from '../../actions/session-actions';
 
+ import { RECEIVE_USERS_INDEX_ITEMS } from '../../actions/user-actions';
+
 const PlaylistsReducer = (state = {}, action) => {
   switch (action.type) {
+
+    case RECEIVE_USERS_INDEX_ITEMS:
+      const { playlists } = action.payload;
+      return {
+        ...state,
+        ...playlists
+      }
     case RECEIVE_PLAYLISTS:
       return {
         ...state,

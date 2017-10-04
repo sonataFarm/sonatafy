@@ -101,11 +101,11 @@ end
 def seed_users
   users = [
     {
-      username: 'DasLied',
+      username: 'gmahler',
       email:    'sonatify+mahler@gmail.com'
     },
     {
-      username: 'rawqSTR',
+      username: 'rockSTAR',
       email:    'sonatify+liszt@gmail.com'
     },
     {
@@ -113,11 +113,11 @@ def seed_users
       email:    'sonatify+haydn@gmail.com'
     },
     {
-      username: 'handZ',
+      username: 'rawqmaninov',
       email:    'sonatify+rachmaninoff@gmail.com'
     },
     {
-      username: 'allrite',
+      username: 'alrite',
       email:    'sonatify+stravinsky@gmail.com'
     },
     {
@@ -125,11 +125,11 @@ def seed_users
       email:    'sonatify+bach@gmail.com'
     },
     {
-      username: 'canUHandelIt',
+      username: 'canuHandelit',
       email:    'sonatify+handel@gmail.com'
     },
     {
-      username: 'roadTo9',
+      username: 'road2nine',
       email:    'sonatify+beethoven@gmail.com'
     },
     {

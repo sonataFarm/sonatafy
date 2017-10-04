@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import { configureStore } from './store/store';
 import PlaylistsReducer from './reducers/entities/playlists-reducer';
-
 // !!!testing
-import { startLoadingSingleUser, receiveSingleUser, fetchSingleUser } from './actions/user-actions';
+import { fetchUsersIndexItems } from './actions/user-actions';
+import { selectUsersIndexItems } from './selectors/selectors';
 import { createFollow, destroyFollow } from './actions/follow-actions';
 import APIUtil from './util/api-util';
 import { addTrackToPlaylist, removeTrackFromPlaylist } from './actions/playlist-actions';
@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
         loading: {
           currentUserPlaylistsLoading: false,
           playlistDetailLoading: true,
-          userDetailLoading: true
+          userDetailLoading: true,
+          usersIndexLoading: true
         }
       }
     }
@@ -40,14 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // !!!testing
   window.store = store;
-  window.startLoadingSingleUser = startLoadingSingleUser;
-  window.receiveSingleUser = receiveSingleUser;
-  window.fetchSingleUser = fetchSingleUser;
   window.APIUtil = APIUtil;
-  window.createFollow = createFollow;
-  window.destroyFollow = destroyFollow;
-  window.addTrackToPlaylist = addTrackToPlaylist;
-  window.removeTrackFromPlaylist = removeTrackFromPlaylist;
+  window.fetchUsersIndexItems = fetchUsersIndexItems;
+  window.selectUsersIndexItems = selectUsersIndexItems;
   // !!!
 
   const root = document.getElementById('root');

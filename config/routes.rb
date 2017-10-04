@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     patch 'playlistings/swap', to: 'playlistings#swap'
     resources :playlists, only: [:show, :create, :destroy, :update]
-    resources :users, only: [:create, :show] do
+    resources :users, only: [:index, :create, :show] do
     resources :playlists, only: [:index]
       resources :follows, only: [:create, :destroy]
     end
