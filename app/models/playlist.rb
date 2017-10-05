@@ -31,7 +31,7 @@ class Playlist < ApplicationRecord
   end
 
   def img_path
-    albums.first ? albums.first.img_path : nil
+    albums.first ? albums.first.img_path : Album::default_img_path
   end
 
   def img_url

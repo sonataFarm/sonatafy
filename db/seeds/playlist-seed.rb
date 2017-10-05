@@ -31,23 +31,38 @@ class PlaylistSeed
   end
 
   def self.music_adjectives
-      %w[Weird Awkward Superhilarious Totally\ Unplayable Disproportionately\ Famous Silent]
+      %w[
+        Weird Awkward Superhilarious Totally\ Unplayable
+        Mostly\ Silent 
+      ]
   end
 
   def self.musician_adjectives
-    %w[Neurotic Tone-Deaf Angry Rude Thrifty Morally\ Impoverished Whiny Unnotable Awkward  Disproportionately\ Famous Quietest]
+    %w[
+      Neurotic Tone-Deaf Effluvient Angry Rude Thrifty Morally\ Impoverished
+      Whiny Unnotable Awkward Disproportionately\ Famous Quietest Inspired
+      Overly-emotional
+    ]
   end
 
   def self.nationalities
-    %w[Russian German French Italian Belgian British Franco-Flemish American]
+    %w[
+      Russian German French Italian Belgian British Franco-Flemish
+      Japanese American
+    ]
   end
 
   def self.performers
-    %w[Violinists Sopranos Tenors Pianists Harpsichordists]
+    %w[
+      Violinists Sopranos Tenors Pianists Harpsichordists Xylophonists
+      Saxophonists Trumpeter Coloratura\ Sopranos Castrati Monks
+    ]
   end
 
   def self.performer_participles
-    %w[Screeching Singing Playing Attempting Riffing\ On Messing\ Up]
+    %w[
+      Screeching Singing Playing Attempting Riffing\ On Messing\ Up
+    ]
   end
 
   def self.musicians

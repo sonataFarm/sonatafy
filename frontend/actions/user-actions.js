@@ -2,10 +2,10 @@ import APIUtil from '../util/api-util';
 import { receivePlaylists } from './playlist-actions';
 import { startLoadingThrottle, LOADING_THROTTLE_DURATION } from './loading-actions';
 
-export const RECEIVE_FOLLOWED_USERS = 'RECEIVE_FOLLOWED_USERS';
-export const START_LOADING_SINGLE_USER = 'START_LOADING_SINGLE_USER';
-export const RECEIVE_SINGLE_USER = 'RECEIVE_SINGLE_USER';
-export const RECEIVE_USERS_INDEX_ITEMS = 'RECEIVE_USERS_INDEX_ITEMS';
+export const RECEIVE_FOLLOWED_USERS          = 'RECEIVE_FOLLOWED_USERS';
+export const START_LOADING_SINGLE_USER       = 'START_LOADING_SINGLE_USER';
+export const RECEIVE_SINGLE_USER             = 'RECEIVE_SINGLE_USER';
+export const RECEIVE_USERS_INDEX_ITEMS       = 'RECEIVE_USERS_INDEX_ITEMS';
 export const START_LOADING_USERS_INDEX_ITEMS = 'START_LOADING_USERS_INDEX_ITEMS';
 
 

@@ -6,6 +6,10 @@ class Album < ApplicationRecord
   has_many :credits
   has_many :performers, through: :credits
 
+  def self.default_img_path
+    'album_covers/default.jpg'
+  end
+
   def ordered_track_ids
     tracks.order(:ord).pluck(:id)
   end
