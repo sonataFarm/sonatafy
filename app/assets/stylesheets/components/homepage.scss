@@ -50,12 +50,17 @@
     border: none;
     &:hover {
       background: white;
+      color: black;
     }
     &:first-of-type {
       margin-top: 10px;
     }
     &:last-of-type {
       margin-bottom: 10px;
+    }
+    &:active {
+      color: black;
+      background: white;
     }
   }
 

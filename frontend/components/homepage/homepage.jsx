@@ -1,5 +1,5 @@
 import React from 'react';
-import LeftSidebar from '../left_sidebar/left-sidebar';
+import LeftSidebarContainer from '../left_sidebar/left-sidebar-container';
 import MainContent from './main-content';
 import RightSidebarContainer from '../right_sidebar/right-sidebar-container';
 import PlayerContainer from '../player/player-container';
@@ -10,7 +10,7 @@ const Homepage = props => {
   return (
     <div className="container-fluid homepage">
       <div className="main-area content">
-        <div className="content-area left-sidebar-container"><LeftSidebar /></div>
+        <div className="content-area left-sidebar-container"><LeftSidebarContainer /></div>
         <div className="content-area col-9 col-md-8">
             <MainContent />
         </div>

@@ -3,11 +3,13 @@ import MenuList from './menu-list';
 import PlaylistListContainer from '../playlist_list/playlist-list-container';
 import PlaylistCreateButton from './playlist-create-button';
 
-const LeftSidebar = () => (
+const LeftSidebar = ({ logout }) => (
   <div className="left-sidebar-inner-container">
     <div className="scrollbar scroll-wrapper">
       <h1>Sonatify</h1>
-      <MenuList />
+      <MenuList
+        logout={logout}
+      />
       <PlaylistListContainer />
     </div>
     <PlaylistCreateButton />

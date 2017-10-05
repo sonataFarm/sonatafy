@@ -11,6 +11,13 @@ a:hover {
   color: #fff;
 }
 
+a:visited {
+  color: white;
+  outline: none;
+}
+
+
+
 .btn-default {
   background: $medium-blue;
   color: $white;
@@ -78,4 +85,9 @@ html,body
   &:active {
     outline: 0;
   }
+}
+
+.list-group-item-action:focus, .list-group-item-action:hover {
+  background: white;
+  color: white;
 }

@@ -17,7 +17,10 @@
     background: black;
     color: white;
     i {
-      color: $dark-green;
+      color: $medium-green;
+      &:hover {
+        color: $dark-green;
+      }
     }
   }
 }
@@ -54,6 +57,21 @@
     font-size: 15px;
     color: $light-orange;
     margin-bottom: 5px;
+  }
+
+  a.menu-list-item {
+    &:hover {
+      background: white;
+      color: black;
+      cursor: pointer;
+    }
+
+  a.menu-list-item:focus {
+    background: white;
+    color: black;
+    cursor: pointer;
+  }
+
   }
 }
 
