@@ -81,6 +81,11 @@
 .playlist-list {
   text-align: left;
   font-size: 12px;
+
+  .list-group-item-action:focus, .list-group-item-action:hover a .active {
+    color: black;
+    background: white;
+  }
 }
 
 .playlist-list-item {

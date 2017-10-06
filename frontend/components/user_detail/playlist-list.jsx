@@ -5,7 +5,7 @@ const PlaylistList = ({ playlists }) => {
   if (!playlists[0]) {
     return null;
   }
-  
+
   const items = playlists.map(
     playlist => <PlaylistListItem key={playlist.id} playlist={playlist} />
   );

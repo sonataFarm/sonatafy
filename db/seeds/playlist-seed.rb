@@ -26,14 +26,28 @@ class PlaylistSeed
       "for Infants",
       "of the 9th and 10th Centuries",
       "for Sleeping",
-      "for Elevators"
-    ]
+      "for Elevators",
+      "for Kings and Queens",
+      "4 geting on yo parTAAAAAY!",
+      "
+    ]"
+  end
+
+  def random_century_range(range)
+    # of the 9th and 10th centuries
+    random_century_range(range)
+    min, max = (e)
+  end
+
+  def self.qualifications
+    "- Macarena Remix"
+    "                "
   end
 
   def self.music_adjectives
       %w[
         Weird Awkward Superhilarious Totally\ Unplayable
-        Mostly\ Silent 
+        Mostly\ Silent
       ]
   end
 

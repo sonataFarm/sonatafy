@@ -14,7 +14,7 @@ class Api::PlaylistingsController < ApplicationController
     if @playlisting
       @playlisting.destroy
       @playlist.reload
-      @playlist.ensure_sequential_order!
+      @playlist.ensure_sequential_ord!
       render 'api/playlists/show'
     else
       render json: 'Track not found', status: 404

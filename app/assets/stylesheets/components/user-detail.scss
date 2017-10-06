@@ -47,6 +47,7 @@
     flex-direction: row;
     justify-content: center;
     .card {
+      color: black;
       width: 150px;
       height: 175px;
       background: black;
@@ -79,6 +80,7 @@
 
 .user-detail-playlist-list-container {
   position: fixed;
+  color: black;
   bottom: 90px;
   left: 160px;
   height: calc(100vh - 310px);
