@@ -9,7 +9,7 @@ end
 
 json.playlists do
   @users.each do |user|
-    user.playlists.limit(5).each do |playlist|
+    user.playlists.limit(3).each do |playlist|
       json.partial! 'api/playlists/playlist', playlist: playlist
     end
   end

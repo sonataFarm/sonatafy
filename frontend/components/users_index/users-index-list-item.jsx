@@ -6,6 +6,10 @@ import PlaylistListItem from '../user_detail/playlist-list-item';
 const UsersIndexListItem = ({ item }) => {
   const { user, playlists } = item;
 
+  const playlistItems = playlists.map(
+    playlist => <PlaylistListItem playlist={ playlist } key={ playlist.id }/>
+  );
+
   return (
     <div className="users-index-list-item-container">
       <div className="user-info">
@@ -19,9 +23,7 @@ const UsersIndexListItem = ({ item }) => {
       </div>
       <div className="playlist-container">
         <ul className="playlist-items">
-          <PlaylistListItem playlist={ playlists[0] } />
-          <PlaylistListItem playlist={ playlists[1] } />
-          <PlaylistListItem playlist={ playlists[3] } />
+          { playlistItems }
         </ul>
         { user.playlists.length - 2 > 1 ? (
           <Link to={`/users/${user.id}`}>
