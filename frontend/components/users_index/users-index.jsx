@@ -24,7 +24,7 @@ class UsersIndex extends React.Component {
   componentWillMount() {
     this.props.fetchUsersIndexItems();
 
-    setTimeout(this.completeInitialLoad, LOADING_THROTTLE_DURATION + 500);
+    setTimeout(this.completeInitialLoad, LOADING_THROTTLE_DURATION + 1000);
   }
 
   completeInitialLoad() {
@@ -57,7 +57,7 @@ class UsersIndex extends React.Component {
   }
 
   render() {
-
+    debugger;
     if (!this.state.initialLoadComplete) {
       return <LoadingIcon />;
     }
