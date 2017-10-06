@@ -53,7 +53,7 @@ class UsersIndex extends React.Component {
   }
 
   isBottom(el) {
-    return $(el).scrollTop() + $(el).innerHeight() >= el.scrollHeight;
+    return $(el).scrollTop() + $(el).innerHeight() >= el.scrollHeight * 0.99;
   }
 
   render() {
