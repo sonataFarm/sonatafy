@@ -57,11 +57,11 @@ class UsersIndex extends React.Component {
   }
 
   render() {
-    debugger;
     if (!this.state.initialLoadComplete) {
       return <LoadingIcon />;
     }
 
+    debugger;
     const { loading, items } = this.props;
 
     const body = items[0] ? <UsersIndexList items={items} /> : null;
