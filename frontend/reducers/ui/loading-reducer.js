@@ -19,7 +19,7 @@ const initialState = {
   playlistDetailLoading: true,
   currentUserPlaylistsLoading: true,
   userDetailLoading: true,
-  throttle: true,
+  throttle: false,
   usersIndexLoading: true
 };
 
