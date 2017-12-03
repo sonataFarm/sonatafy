@@ -33,24 +33,6 @@ class User < ApplicationRecord
     user && user.is_password?(password) ? user : nil
   end
 
-  def follow(other_user)
-    @follow = Follow.new(
-      follower_id: id,
-      followed_user_id: other_user.id
-    )
-
-    @follow.save
-  end
-
-  def unfollow(other_user)
-    @follow = Follow.where(
-      follower_id: id,
-      followed_user_id: other_user.id
-     )
-
-     @follow.destroy
-  end
-
   def self.generate_session_token
     SecureRandom::urlsafe_base64
   end
@@ -84,5 +66,23 @@ class User < ApplicationRecord
 
   def followed_user_ids
     followed_users.map { |user| user.id }
+  end
+
+  def follow(other_user)
+    @follow = Follow.new(
+      follower_id: id,
+      followed_user_id: other_user.id
+    )
+
+    @follow.save
+  end
+
+  def unfollow(other_user)
+    @follow = Follow.where(
+      follower_id: id,
+      followed_user_id: other_user.id
+     )
+
+     @follow.destroy
   end
 end
