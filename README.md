@@ -6,7 +6,7 @@ Sonatify is a single-page app powered by a Rails backend and React-Redux fronten
 ## Technologies
 Sonatify uses __Rails 5__ with a __PostgreSQL__ database on the backend, with __AWS S3 Cloud Storage__ for audio storage and access. On the front-end, a __React__ component hierarchy enables on-the-fly DOM manipulation while __Redux__ manages the application state.
 
-The result of this architecture is a responsive, scalable and modern web app.
+The result of this architecture is a performant, scalable and modern web app.
 
 ## Key Features
 * User authentication using ```bcrypt``` for password encryption and session cookies
