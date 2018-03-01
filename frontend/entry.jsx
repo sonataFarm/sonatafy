@@ -3,11 +3,6 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import { configureStore } from './store/store';
 
-// !!! testing and debugging
-import { playSingleTrack } from './actions/player-actions';
-window.playSingleTrack = playSingleTrack;
-// !!! end
-
 document.addEventListener('DOMContentLoaded', () => {
   let preloadedState;
 
@@ -37,10 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const store = configureStore(preloadedState);
-  // !!! testing and debugging
-  window.store = store;
-  // !!! end
-  
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 });

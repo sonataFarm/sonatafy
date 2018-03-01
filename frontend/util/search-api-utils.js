@@ -5,7 +5,6 @@ const searchTracks = searchTerm => (
   })
 )
 
-
 export default {
   searchTracks
 };

@@ -128,4 +128,4 @@ export default {
   addTrackToPlaylist,
   removeTrackFromPlaylist,
   fetchUsersIndexItems
-}
+};
