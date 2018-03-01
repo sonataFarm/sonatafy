@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { ComposerFormat, formatTime } from '../../util/format-utils';
+import { ComposerFormat, formatTime } from '../../../util/format-utils';
 import AddTrackDropdownContainer from '../add_track_dropdown/add-track-dropdown-container';
 import _ from 'lodash';
 

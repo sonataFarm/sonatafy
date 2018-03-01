@@ -1,5 +1,6 @@
-export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
-export const RECEIVE_UNFOLLOW = 'RECEIVE_UNFOLLOW';
+export const
+  RECEIVE_FOLLOW   = 'RECEIVE_FOLLOW',
+  RECEIVE_UNFOLLOW = 'RECEIVE_UNFOLLOW';
 
 export const receiveFollow = id => ({
   type: RECEIVE_FOLLOW,

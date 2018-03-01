@@ -3,7 +3,7 @@ import DropdownMenu from 'react-dd-menu';
 import AddTrackDropdownItem from './add-track-dropdown-item';
 
 class AddTrackDropdown extends React.Component {
-  // form to add track to a playlist
+  // form to add track to playlist
   constructor(props) {
     super(props);
 

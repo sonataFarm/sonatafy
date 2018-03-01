@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { startLoadingCurrentTrack, play } from '../../actions/player-actions';
+import { startLoadingCurrentTrack, play, setVolume } from '../../actions/player-actions';
 import Player from './player';
 
 const mapStateToProps = state => ({
@@ -10,7 +10,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   startLoadingCurrentTrack: () => dispatch(startLoadingCurrentTrack()),
-  play: () => dispatch(play())
+  play: () => dispatch(play()),
+  setVolume: volume => dispatch(setVolume(volume))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Player)

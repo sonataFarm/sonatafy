@@ -1,10 +1,7 @@
 import { connect } from 'react-redux';
 import AddTrackDropdown from './add-track-dropdown';
-import { selectUserPlaylists } from '../../selectors/selectors';
-import { addTrackToPlaylist } from '../../actions/playlist-actions';
-
-// playlists
-// addTrackToPlaylist
+import { selectUserPlaylists } from '../../../selectors/selectors';
+import { addTrackToPlaylist } from '../../../actions/playlist-actions';
 
 const mapStateToProps = state => ({
   playlists: selectUserPlaylists(state, state.session.currentUser.id)

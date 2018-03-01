@@ -1,7 +1,6 @@
 import React from 'react';
 import ModalButton from '../shared/modal-button';
 
-
 const buttonText =
   <div>
     <i className="fa fa-plus-circle" aria-hidden="true"></i>

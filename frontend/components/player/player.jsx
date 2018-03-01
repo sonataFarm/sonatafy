@@ -39,7 +39,10 @@ class Player extends React.Component {
       <div className="player-container row">
         <PlayerLeft currentTrack={currentTrack} howl={this.howl} />
         <PlayerMain player={this.props.player} howl={this.howl} />
-        <PlayerRight howl={this.howl}/>
+        <PlayerRight
+          volume={this.props.volume}
+          setVolume={this.props.setVolume}
+        />
         <ReactHowler
           src={[currentTrack ? currentTrack.url : '']}
           playing={this.props.playing}

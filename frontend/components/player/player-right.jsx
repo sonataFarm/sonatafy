@@ -1,11 +1,14 @@
 import React from 'react';
-import VolumeSliderContainer from '../volume_slider/volume-slider-container';
+import VolumeSlider from './volume-slider';
 
 
-const PlayerRight = () => (
+const PlayerRight = ({ volume, setVolume }) => (
   <div className="player-right-container col-md-3">
     <div className="volume-control">
-      <VolumeSliderContainer />
+      <VolumeSlider
+        volume={volume}
+        setVolume={setVolume}
+      />
     </div>
   </div>
 );

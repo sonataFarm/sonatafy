@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import TrackList from './track-list';
-import { enqueuePlaylist } from '../../actions/player-actions';
-import { removeTrackFromPlaylist } from '../../actions/playlist-actions';
+import { enqueuePlaylist } from '../../../actions/player-actions';
+import { removeTrackFromPlaylist } from '../../../actions/playlist-actions';
 
 const mapStateToProps = (state, ownProps) => ({
   currentTrack: state.ui.player.currentTrack,

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const AddTrackDropdownItem = ({ track, playlist, addTrackToPlaylist, toggleMenuOpen}) => {
-
   const handleClick = e => {
     e.stopPropagation();
     addTrackToPlaylist(playlist.id, track.id);

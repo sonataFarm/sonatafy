@@ -1,7 +1,7 @@
 import React from 'react';
 import { fetchSinglePlaylist } from '../../actions/playlist-actions';
 import PlaylistDetailHeader from './playlist-detail-header';
-import TrackListContainer from '../track_list/track-list-container';
+import TrackListContainer from '../shared/track_list/track-list-container';
 import LoadingIcon from '../shared/loading';
 
 class PlaylistDetail extends React.Component {

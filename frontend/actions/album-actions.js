@@ -1,7 +1,8 @@
 import APIUtil from '../util/api-util';
 
-export const RECEIVE_ALBUMS = "RECEIVE_ALBUMS";
-export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
+export const
+  RECEIVE_ALBUMS = "RECEIVE_ALBUMS",
+  RECEIVE_ALBUM  = "RECEIVE_ALBUM";
 
 export const receiveAlbums = albums => ({
   type: RECEIVE_ALBUMS,

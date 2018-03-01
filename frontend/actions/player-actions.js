@@ -1,15 +1,16 @@
 import { fetchCurrentTrack } from './track-actions';
 
-export const PAUSE = 'PAUSE';
-export const SEEK = 'SEEK';
-export const PLAY = 'PLAY';
-export const ENQUEUE_TRACKS = 'ENQUEUE TRACKS';
-export const QUEUE_NEXT_TRACK = 'QUEUE_NEXT_TRACK';
-export const QUEUE_PREVIOUS_TRACK = 'QUEUE_PREVIOUS_TRACK';
-export const RECEIVE_CURRENT_TRACK = 'RECEIVE_CURRENT_TRACK';
-export const START_LOADING_CURRENT_TRACK = 'START_LOADING_CURRENT_TRACK';
-export const ENQUEUE_SINGLE_TRACK = 'ENQUEUE_SINGLE_TRACK';
-export const SET_VOLUME = 'SET_VOLUME';
+export const
+  PLAY                        = 'PLAY',
+  PAUSE                       = 'PAUSE',
+  SEEK                        = 'SEEK',
+  ENQUEUE_TRACKS              = 'ENQUEUE TRACKS',
+  QUEUE_NEXT_TRACK            = 'QUEUE_NEXT_TRACK',
+  QUEUE_PREVIOUS_TRACK        = 'QUEUE_PREVIOUS_TRACK',
+  RECEIVE_CURRENT_TRACK       = 'RECEIVE_CURRENT_TRACK',
+  START_LOADING_CURRENT_TRACK = 'START_LOADING_CURRENT_TRACK',
+  ENQUEUE_SINGLE_TRACK        = 'ENQUEUE_SINGLE_TRACK',
+  SET_VOLUME                  = 'SET_VOLUME';
 
 export const play = () => ({
   type: PLAY
@@ -57,24 +58,33 @@ export const enqueuePlaylist = (playlistID, startIdx) => (dispatch, getState) =>
   const tracks = playlist.tracks.slice(startIdx)
     .concat(playlist.tracks.slice(0, startIdx));
 
-  dispatch(enqueueTracks(tracks));
-  dispatch(fetchCurrentTrack(tracks[0]))
+  return Promise.all([
+    dispatch(enqueueTracks(tracks)),
+    dispatch(fetchCurrentTrack(tracks[0]))
+  ]);
 };
 
-export const playSingleTrack = trackID => dispatch => {
-  dispatch(enqueueSingleTrack(trackID));
-  dispatch(fetchCurrentTrack(trackID));
-}
+export const playSingleTrack = trackID => dispatch => (
+  Promise.all([
+    dispatch(enqueueSingleTrack(trackID)),
+    dispatch(fetchCurrentTrack(trackID))
+  ])
+);
 
 export const playPreviousTrack = () => (dispatch, getState) => {
   let queue = getState().ui.player.queue;
-  dispatch(queuePreviousTrack());
-dispatch(fetchCurrentTrack(queue[queue.length - 1]));
+  return Promise.all([
+    dispatch(queuePreviousTrack()),
+    dispatch(fetchCurrentTrack(queue[queue.length - 1]))
+  ]);
 };
 
 export const playNextTrack = () => (dispatch, getState) => {
   let queue = getState().ui.player.queue;
   let id = queue[1] || getState().ui.player.currentTrack.id;
-  dispatch(fetchCurrentTrack(id));
-  dispatch(queueNextTrack());
+
+  return Promise.all([
+    dispatch(fetchCurrentTrack(id)),
+    dispatch(queueNextTrack())
+  ]);
 };

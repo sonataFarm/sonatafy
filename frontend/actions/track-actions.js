@@ -1,7 +1,8 @@
 import APIUtil from '../util/api-util';
 
-export const RECEIVE_TRACKS = 'RECEIVE_TRACKS';
-export const RECEIVE_CURRENT_TRACK = 'RECEIVE_CURRENT_TRACK';
+export const
+  RECEIVE_TRACKS        = 'RECEIVE_TRACKS',
+  RECEIVE_CURRENT_TRACK = 'RECEIVE_CURRENT_TRACK';
 
 export const receiveTracks = tracks => ({
   type: RECEIVE_TRACKS,

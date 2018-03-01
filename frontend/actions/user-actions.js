@@ -2,12 +2,12 @@ import APIUtil from '../util/api-util';
 import { receivePlaylists } from './playlist-actions';
 import { startLoadingThrottle, LOADING_THROTTLE_DURATION } from './loading-actions';
 
-export const RECEIVE_FOLLOWED_USERS          = 'RECEIVE_FOLLOWED_USERS';
-export const START_LOADING_SINGLE_USER       = 'START_LOADING_SINGLE_USER';
-export const RECEIVE_SINGLE_USER             = 'RECEIVE_SINGLE_USER';
-export const RECEIVE_USERS_INDEX_ITEMS       = 'RECEIVE_USERS_INDEX_ITEMS';
-export const START_LOADING_USERS_INDEX_ITEMS = 'START_LOADING_USERS_INDEX_ITEMS';
-
+export const
+  RECEIVE_FOLLOWED_USERS          = 'RECEIVE_FOLLOWED_USERS',
+  START_LOADING_SINGLE_USER       = 'START_LOADING_SINGLE_USER',
+  RECEIVE_SINGLE_USER             = 'RECEIVE_SINGLE_USER',
+  RECEIVE_USERS_INDEX_ITEMS       = 'RECEIVE_USERS_INDEX_ITEMS',
+  START_LOADING_USERS_INDEX_ITEMS = 'START_LOADING_USERS_INDEX_ITEMS';
 
 export const fetchUsersIndexItems = offset => (dispatch, getState) => {
   dispatch(startLoadingUsersIndexItems());
@@ -18,7 +18,19 @@ export const fetchUsersIndexItems = offset => (dispatch, getState) => {
       setTimeout(() => {
         dispatch(receiveUsersIndexItems(payload));
       }, LOADING_THROTTLE_DURATION))
-}
+};
+
+export const fetchSingleUser = id => dispatch => {
+  dispatch(startLoadingSingleUser());
+  dispatch(startLoadingThrottle());
+
+  return APIUtil.entities.fetchSingleUser(id)
+    .then(data => {
+      dispatch(receivePlaylists(data.playlists));
+      dispatch(receiveSingleUser(data.user));
+    }
+  );
+};
 
 export const startLoadingSingleUser = () => ({
   type: START_LOADING_SINGLE_USER
@@ -36,22 +48,9 @@ export const receiveSingleUser = user => ({
 
 export const startLoadingUsersIndexItems = () => ({
   type: START_LOADING_USERS_INDEX_ITEMS
-})
+});
 
 export const receiveUsersIndexItems = payload => ({
   type: RECEIVE_USERS_INDEX_ITEMS,
   payload
-})
-
-
-export const fetchSingleUser = id => dispatch => {
-  dispatch(startLoadingSingleUser());
-  dispatch(startLoadingThrottle());
-
-  return APIUtil.entities.fetchSingleUser(id)
-    .then(data => {
-      dispatch(receivePlaylists(data.playlists));
-      dispatch(receiveSingleUser(data.user));
-    }
-  );
-};
+});

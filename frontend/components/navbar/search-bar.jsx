@@ -2,7 +2,7 @@ import React from 'react';
 import AutoSuggest from 'react-autosuggest';
 import APIUtil from '../../util/api-util';
 import { composerFormatShort } from '../../util/format-utils';
-import AddTrackDropdownContainer from '../add_track_dropdown/add-track-dropdown-container';
+import AddTrackDropdownContainer from '../shared/add_track_dropdown/add-track-dropdown-container';
 
 const languages = []
 class SearchBar extends React.Component {
